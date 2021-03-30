@@ -4,6 +4,7 @@ class Math
 {
 public:
 	static double Clamp(double, double = 0.0, double = 1.0);
+	static double Mix(double, double, double = 0.5);
 
 	// Minimum and maximum
 	static double Min(double, double);
@@ -23,6 +24,16 @@ public:
 inline double Math::Clamp(double x, double a, double b)
 {
 	return (x < a ? a : (x > b ? b : x));
+}
+
+/*!
+\brief Linearly interpolate a double value between two reals with a weight.
+\param a, b Real values.
+\param k Weight.
+*/
+inline double Math::Mix(double a, double b, double k)
+{
+	return a * (1-k) + b * k;
 }
 
 /*!
