@@ -5,7 +5,7 @@
 
 class Operator : public Node
 {
-private:
+protected:
 	Node* left;
 	Node* right;
 
