@@ -99,7 +99,6 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="operator.cpp" />
     <ClCompile Include="Source\box.cpp" />
     <ClCompile Include="Source\camera.cpp" />
     <ClCompile Include="Source\evector.cpp" />
@@ -109,6 +108,7 @@
     <ClCompile Include="Source\mesh.cpp" />
     <ClCompile Include="Source\meshcolor.cpp" />
     <ClCompile Include="Source\moc_qte.cpp" />
+    <ClCompile Include="Source\operator.cpp" />
     <ClCompile Include="Source\op_difference.cpp" />
     <ClCompile Include="Source\op_intersection.cpp" />
     <ClCompile Include="Source\op_smooth_difference.cpp" />
@@ -160,13 +160,14 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\node.h" />
+    <ClInclude Include="Include\operator.h" />
     <ClInclude Include="Include\op_difference.h" />
     <ClInclude Include="Include\op_intersection.h" />
     <ClInclude Include="Include\op_smooth_difference.h" />
     <ClInclude Include="Include\op_smooth_intersection.h" />
     <ClInclude Include="Include\op_smooth_union.h" />
     <ClInclude Include="Include\op_union.h" />
-    <ClInclude Include="node.h" />
     <ClInclude Include="Include\box.h" />
     <ClInclude Include="Include\camera.h" />
     <ClInclude Include="Include\color.h" />
@@ -176,7 +177,6 @@
     <ClInclude Include="Include\meshcolor.h" />
     <ClInclude Include="Include\ray.h" />
     <ClInclude Include="Include\shader-api.h" />
-    <ClInclude Include="operator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -41,9 +41,6 @@
     <ClCompile Include="Source\realtime-moc.cpp">
       <Filter>Interface</Filter>
     </ClCompile>
-    <ClCompile Include="operator.cpp">
-      <Filter>Source\SDF</Filter>
-    </ClCompile>
     <ClCompile Include="Source\op_union.cpp">
       <Filter>Source\SDF\Operators</Filter>
     </ClCompile>
@@ -61,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="Source\op_smooth_intersection.cpp">
       <Filter>Source\SDF\Operators</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\operator.cpp">
+      <Filter>Source\SDF</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -132,12 +132,6 @@
     <ClInclude Include="Include\mathematics.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="node.h">
-      <Filter>Include\SDF</Filter>
-    </ClInclude>
-    <ClInclude Include="operator.h">
-      <Filter>Include\SDF</Filter>
-    </ClInclude>
     <ClInclude Include="Include\op_difference.h">
       <Filter>Include\SDF\Operators</Filter>
     </ClInclude>
@@ -155,6 +149,12 @@
     </ClInclude>
     <ClInclude Include="Include\op_smooth_difference.h">
       <Filter>Include\SDF\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\node.h">
+      <Filter>Include\SDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\operator.h">
+      <Filter>Include\SDF</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
