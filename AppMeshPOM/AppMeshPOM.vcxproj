@@ -126,6 +126,7 @@
     <ClCompile Include="Source\shader-api.cpp" />
     <ClCompile Include="Source\sphere.cpp" />
     <ClCompile Include="Source\torus.cpp" />
+    <ClCompile Include="Source\terrain.cpp" />
     <ClCompile Include="Source\triangle.cpp" />
     <ClCompile Include="Source\triangular_prism.cpp" />
   </ItemGroup>
@@ -193,6 +194,7 @@
     <ClInclude Include="Include\shader-api.h" />
     <ClInclude Include="Include\sphere.h" />
     <ClInclude Include="Include\triangular_prism.h" />
+    <ClInclude Include="Include\terrain.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

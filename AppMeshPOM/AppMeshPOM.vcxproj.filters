@@ -86,6 +86,9 @@
     <ClCompile Include="Source\torus.cpp">
       <Filter>Source\SDF\Primitives</Filter>
     </ClCompile>
+    <ClCompile Include="Source\terrain.cpp">
+      <Filter>Source\SDF\Primitives</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Include\qte.h">
@@ -208,6 +211,9 @@
       <Filter>Include\SDF\Primitives</Filter>
     </ClInclude>
     <ClInclude Include="Include\pyramid.h">
+      <Filter>Include\SDF\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\terrain.h">
       <Filter>Include\SDF\Primitives</Filter>
     </ClInclude>
   </ItemGroup>
