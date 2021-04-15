@@ -62,6 +62,30 @@
     <ClCompile Include="Source\operator.cpp">
       <Filter>Source\SDF</Filter>
     </ClCompile>
+    <ClCompile Include="Source\sphere.cpp">
+      <Filter>Source\SDF\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\boite.cpp">
+      <Filter>Source\SDF\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\capsule.cpp">
+      <Filter>Source\SDF\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\cone.cpp">
+      <Filter>Source\SDF\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ellipsoid.cpp">
+      <Filter>Source\SDF\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\pyramid.cpp">
+      <Filter>Source\SDF\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\triangular_prism.cpp">
+      <Filter>Source\SDF\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\torus.cpp">
+      <Filter>Source\SDF\Primitives</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Include\qte.h">
@@ -102,6 +126,12 @@
     </Filter>
     <Filter Include="Source\SDF\Operators">
       <UniqueIdentifier>{e305ad55-132a-41d3-8dac-b78322b36622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\SDF\Primitives">
+      <UniqueIdentifier>{9416732b-508a-48ac-b416-5c1f2ef8428f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\SDF\Primitives">
+      <UniqueIdentifier>{a8a45f52-b2b9-4655-abcd-e403adea3d2f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +185,30 @@
     </ClInclude>
     <ClInclude Include="Include\operator.h">
       <Filter>Include\SDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\sphere.h">
+      <Filter>Include\SDF\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\boite.h">
+      <Filter>Include\SDF\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\torus.h">
+      <Filter>Include\SDF\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\cone.h">
+      <Filter>Include\SDF\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\triangular_prism.h">
+      <Filter>Include\SDF\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\capsule.h">
+      <Filter>Include\SDF\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ellipsoid.h">
+      <Filter>Include\SDF\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\pyramid.h">
+      <Filter>Include\SDF\Primitives</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
