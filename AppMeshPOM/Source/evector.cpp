@@ -2,6 +2,7 @@
 
 // Self include
 #include "evector.h"
+#include "mathematics.h"
 #include <iostream>
 
 /*!

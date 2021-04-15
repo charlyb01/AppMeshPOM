@@ -12,6 +12,9 @@ public:
 	static double Min(double, double, double);
 	static double Max(double, double, double);
 
+	static double Sign(double);
+	static double Abs(double);
+
 	static constexpr double DegreeToRadian(double);
 	static constexpr double RadianToDegree(double);
 };
@@ -70,6 +73,19 @@ inline double Math::Max(double a, double b, double c)
 inline double Math::Min(double a, double b, double c)
 {
 	return Math::Min(Math::Min(a, b), c);
+}
+
+inline double Math::Sign(double a)
+{
+	if (a > 0) {
+		return 1.0;
+	}
+	return a < 0.0 ? -1.0 : 0.0;
+}
+
+inline double Math::Abs(double a)
+{
+	return a < 0.0 ? -a : a;
 }
 
 /*!

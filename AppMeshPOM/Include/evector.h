@@ -12,6 +12,7 @@
 #define __Vector__
 
 #include <QtCore/QString>
+#include "mathematics.h"
 
 // Class
 class Vector
@@ -76,6 +77,7 @@ public:
   // Compare functions
   static Vector Min(const Vector&, const Vector&);
   static Vector Max(const Vector&, const Vector&);
+  static double Max(const Vector&, const double&);
 
   // Abs
   friend Vector Abs(const Vector&);
@@ -420,6 +422,17 @@ inline Vector Vector::Max(const Vector& a, const Vector& b)
 }
 
 /*!
+\If the parameter vector has a value less than the given double
+then this value is replaced by the value of the double.
+\param vec
+\param a is double
+*/
+inline double Vector::Max(const Vector& vec, const double& a)
+{
+    return Math::Max(Math::Max(vec[0], vec[1], vec[2]), a);
+}
+
+/*!
 \brief Linear interpolation between two vectors.
 \param a,b Interpolated points.
 \param t Interpolant.
@@ -546,9 +559,6 @@ public:
 
   // Swap
   friend void Swap(Vector2&, Vector2&);
-
-  //Dot
-  friend Vector2 Dot(const Vector2&, const Vector2&);
 
   friend Vector2 Lerp(const Vector2&, const Vector2&, double);
   static Vector2 Bilinear(const Vector2&, const Vector2&, const Vector2&, const Vector2&, double, double);
@@ -870,15 +880,6 @@ inline Vector2 Vector2::Orthogonal() const
 inline bool Vector2::Clockwise(const Vector2& a, const Vector2& b, const Vector2& c)
 {
   return (b - a) / (c - a) < 0.0;
-}
-
-/*!
-\brief Scalar product between two vectors.
-\param a,b Scalar points.
-*/
-inline Vector2 Dot(const Vector2& a, const Vector2& b)
-{
-    return Vector2(a[0] + b[0], a[1] + b[1]);
 }
 
 /*!
