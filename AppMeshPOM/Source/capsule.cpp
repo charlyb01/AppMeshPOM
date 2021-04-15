@@ -10,6 +10,6 @@ double Capsule::Signed(const Vector& p)const
 double Capsule::Signed(const Vector& p, const Vector& a, const Vector& b, const float& r)const
 {
 	Vector pa = p - a, ba = b - a;
-	float h = Math::Clamp(Dot(pa, ba) / Dot(ba, ba), 0.0, 1.0);
+	float h = Math::Clamp((pa * ba) / (ba * ba), 0.0, 1.0);
 	return Norm(pa - ba * h) - r;
 }
