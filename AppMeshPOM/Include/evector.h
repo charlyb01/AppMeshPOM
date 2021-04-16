@@ -519,6 +519,9 @@ inline Vector Vector::Solve(const Vector& a, const Vector& b, double va, double 
   return (vb * a - va * b) / (vb - va);
 }
 
+// Tell Vector2 that Mat2 exists
+class Mat2;
+
 // Class
 class Vector2
 {
@@ -563,6 +566,7 @@ public:
   friend double operator* (const Vector2&, const Vector2&);
 
   friend Vector2 operator* (const Vector2&, double);
+  friend Vector2 operator* (const Mat2&, const Vector2&);
   friend Vector2 operator* (double, const Vector2&);
   friend Vector2 operator/ (const Vector2&, double);
 
@@ -964,6 +968,51 @@ This function inverses the components of the vector.
 inline Vector2 Vector2::Inverse() const
 {
   return Vector2(1.0 / c[0], 1.0 / c[1]);
+}
+
+class Mat2
+{
+protected:
+    Vector2 l[2];
+public:
+    explicit Mat2(double, double, double, double);
+
+    Vector2& operator[] (int);
+    Vector2 operator[] (int) const;
+};
+
+/*!
+\brief Create a matrix with argument coordinates.
+\param a,b,c,d Coordinates.
+*/
+inline Mat2::Mat2(double a, double b, double c, double d)
+{
+    Mat2::l[0][0] = a;
+    Mat2::l[0][1] = b;
+    Mat2::l[1][0] = c;
+    Mat2::l[1][1] = d;
+}
+
+//! Gets the i-th line of matrix.
+inline Vector2& Mat2::operator[] (int i)
+{
+    return l[i];
+}
+
+//! Returns the i-th line of matrix.
+inline Vector2 Mat2::operator[] (int i) const
+{
+    return l[i];
+}
+
+/*!
+\brief Left matrix product with a vector.
+\param m Matrix.
+\param u Vector.
+*/
+inline Vector2 operator* (const Mat2& m, const Vector2& u)
+{
+    return Vector2(m[0][0] * u[0] + m[0][1] * u[1], m[1][0] * u[0] + m[1][1] * u[1]);
 }
 
 #endif
