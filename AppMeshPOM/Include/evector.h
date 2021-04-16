@@ -51,7 +51,9 @@ public:
 
   // Binary operators
   friend Vector operator+ (const Vector&, const Vector&);
+  friend Vector operator+ (const Vector&, double);
   friend Vector operator- (const Vector&, const Vector&);
+  friend Vector operator- (double, const Vector&);
 
   friend constexpr double operator* (const Vector&, const Vector&);
 
@@ -82,6 +84,9 @@ public:
   // Abs
   friend Vector Abs(const Vector&);
 
+  static Vector Floor(const Vector&);
+  static Vector Fract(const Vector&);
+
   // Orthogonal and orthonormal vectors
   Vector Orthogonal() const;
   void Orthonormal(Vector&, Vector&) const;
@@ -106,6 +111,8 @@ public:
   friend std::ostream& operator<<(std::ostream&, const Vector&);
 
   static Vector Solve(const Vector&, const Vector&, double, double);
+
+  static double Hash(const Vector&);
 
 public:
   static const Vector Null; //!< Null vector.
@@ -264,10 +271,22 @@ inline Vector operator+ (const Vector& u, const Vector& v)
   return Vector(u.c[0] + v.c[0], u.c[1] + v.c[1], u.c[2] + v.c[2]);
 }
 
+//! Adds up a scalar to a vector.
+inline Vector operator+ (const Vector& u, double a)
+{
+    return Vector(u.c[0] + a, u.c[1] + a, u.c[2] + a);
+}
+
 //! Difference between two vectors.
 inline Vector operator- (const Vector& u, const Vector& v)
 {
   return Vector(u.c[0] - v.c[0], u.c[1] - v.c[1], u.c[2] - v.c[2]);
+}
+
+//! Difference between a scalar and a vector.
+inline Vector operator- (double a, const Vector& u)
+{
+    return Vector(a - u.c[0], a - u.c[1], a - u.c[2]);
 }
 
 //! Scalar product.
@@ -401,6 +420,24 @@ inline int Vector::MaxIndex() const
 inline Vector Abs(const Vector& u)
 {
   return Vector(u[0] > 0.0 ? u[0] : -u[0], u[1] > 0.0 ? u[1] : -u[1], u[2] > 0.0 ? u[2] : -u[2]);
+}
+
+/*!
+\brief Integer value of a vector.
+\param a Vector.
+*/
+inline Vector Vector::Floor(const Vector& u)
+{
+    return u / 1.0;
+}
+
+/*!
+\brief Floating value of a vector.
+\param a Real value.
+*/
+inline Vector Vector::Fract(const Vector& u)
+{
+    return u - Floor(u);
 }
 
 /*!

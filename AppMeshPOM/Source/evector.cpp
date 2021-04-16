@@ -165,3 +165,15 @@ Vector Vector::Trilinear(const Vector& a, const Vector& b, const Vector& c, cons
 {
   return (1 - w) * Vector::Bilinear(a, b, c, d, u, v) + w * Vector::Bilinear(e, f, g, h, u, v);
 }
+
+/*!
+\brief Compute a fast hash on a vector.
+
+\param a Vector.
+*/
+double Vector::Hash(const Vector& u)
+{
+    Vector v = Fract(u * 0.3183099 + 0.1);
+    v *= 17.0;
+    return Math::Fract(v[0] * v[1] * v[2] * (v[0] + v[1] + v[2]));
+}
