@@ -14,6 +14,8 @@ public:
 
 	static double Sign(double);
 	static double Abs(double);
+	static double Floor(double);
+	static double Fract(double);
 
 	static constexpr double DegreeToRadian(double);
 	static constexpr double RadianToDegree(double);
@@ -86,6 +88,24 @@ inline double Math::Sign(double a)
 inline double Math::Abs(double a)
 {
 	return a < 0.0 ? -a : a;
+}
+
+/*!
+\brief Integer part of a real.
+\param a Real value.
+*/
+inline double Math::Floor(double a)
+{
+	return a / 1.0;
+}
+
+/*!
+\brief Floating part of a real.
+\param a Real value.
+*/
+inline double Math::Fract(double a)
+{
+	return a - Floor(a);
 }
 
 /*!
