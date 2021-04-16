@@ -22,3 +22,19 @@ double Terrain::Signed(const Vector& vec) const
     const float terrain2D = a + (vec[0] * vec[0]) / 100.0;
     return vec[1] - terrain2D;
 }
+
+double Terrain::Noise(const Vector& vec)
+{
+    Vector i = Vector::Floor(vec);
+    Vector f = Vector::Fract(vec);
+    f = f * f * (3.0 - 2.0 * f);
+
+    return Math::Mix(Math::Mix(Math::Mix(Vector::Hash(i + Vector(0, 0, 0)),
+        Vector::Hash(i + Vector(1, 0, 0)), f[0]),
+        Math::Mix(Vector::Hash(i + Vector(0, 1, 0)),
+            Vector::Hash(i + Vector(1, 1, 0)), f[0]), f[1]),
+        Math::Mix(Math::Mix(Vector::Hash(i + Vector(0, 0, 1)),
+            Vector::Hash(i + Vector(1, 0, 1)), f[0]),
+            Math::Mix(Vector::Hash(i + Vector(0, 1, 1)),
+                Vector::Hash(i + Vector(1, 1, 1)), f[0]), f[1]), f[2]);
+}

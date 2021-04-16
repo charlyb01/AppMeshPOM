@@ -7,6 +7,8 @@ class Terrain
 {
 public:
 	double Signed(const Vector& vec) const;
+
+	static double Noise(const Vector& vec);
 };
 
 #endif
