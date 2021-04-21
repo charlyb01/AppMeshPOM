@@ -127,8 +127,9 @@ public:
 
 	void Load(const QString&);
 	void SaveObj(const QString&, const QString&) const;
-protected:
+
 	void AddTriangle(int, int, int, int);
+protected:
 	void AddSmoothTriangle(int, int, int, int, int, int);
 	void AddSmoothQuadrangle(int, int, int, int, int, int, int, int);
 	void AddQuadrangle(int, int, int, int);
