@@ -29,6 +29,7 @@ void MainWindow::CreateActions()
 	connect(uiw.boxMesh, SIGNAL(clicked()), this, SLOT(BoxMeshExample()));
 	connect(uiw.resetcameraButton, SIGNAL(clicked()), this, SLOT(ResetCamera()));
 	connect(uiw.wireframe, SIGNAL(clicked()), this, SLOT(UpdateMaterial()));
+	connect(uiw.boxTerrain, SIGNAL(clicked()), this, SLOT(Generate()));
 
 	// Widget edition
 	connect(meshWidget, SIGNAL(_signalEditSceneLeft(const Ray&)), this, SLOT(editingSceneLeft(const Ray&)));
@@ -40,6 +41,10 @@ void MainWindow::editingSceneLeft(const Ray&)
 }
 
 void MainWindow::editingSceneRight(const Ray&)
+{
+}
+
+void MainWindow::Generate()
 {
 }
 
