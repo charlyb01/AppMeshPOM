@@ -6,7 +6,7 @@
 class OpUnion : public Operator
 {
 public:
-	double Signed(const Vector& vec) const;
+	double Signed(const Vector&) const;
 };
 
 #endif

@@ -1,13 +1,15 @@
 #ifndef __OPSMOOTHUNION__
 #define __OPSMOOTHUNION__
 
-#include "operator.h"
+#include "op_smooth.h"
 
-class OpSmoothUnion : public Operator
+class OpSmoothUnion : public OpSmooth
 {
 public:
-	double Signed(const Vector& vec) const;
-	double Signed(const Vector& vec, const double& k) const;
+	OpSmoothUnion() = delete;
+	OpSmoothUnion(Node* l, Node* r, const double& a = 1.0) : OpSmooth(l, r, a) {}
+
+	double Signed(const Vector&) const;
 };
 
 #endif

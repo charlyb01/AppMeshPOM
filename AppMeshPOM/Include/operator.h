@@ -10,9 +10,6 @@ protected:
 	Node* right;
 
 public:
-	Operator() = delete;
-	Operator(const Operator& op) = delete;
-
 	Operator(Node* l, Node* r);
 	~Operator();
 };

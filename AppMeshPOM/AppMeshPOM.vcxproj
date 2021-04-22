@@ -178,6 +178,7 @@
     <ClInclude Include="Include\data_structs.h" />
     <ClInclude Include="Include\ellipsoid.h" />
     <ClInclude Include="Include\mesh_reconstruction.h" />
+    <ClInclude Include="Include\op_smooth.h" />
     <ClInclude Include="Include\pyramid.h" />
     <ClInclude Include="Include\torus.h" />
     <ClInclude Include="Include\node.h" />

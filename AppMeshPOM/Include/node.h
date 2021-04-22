@@ -6,7 +6,9 @@
 class Node
 {
 public:
-	virtual double Signed(const Vector& vec) const = 0;
+	virtual ~Node() {}
+
+	virtual double Signed(const Vector&) const = 0;
 };
 
 #endif

@@ -1,13 +1,15 @@
 #ifndef __OPSMOOTHDIFFERENCE__
 #define __OPSMOOTHDIFFERENCE__
 
-#include "operator.h"
+#include "op_smooth.h"
 
-class OpSmoothDifference : public Operator
+class OpSmoothDifference : public OpSmooth
 {
 public:
-	double Signed(const Vector& vec) const;
-	double Signed(const Vector& vec, const double& k) const;
+	OpSmoothDifference() = delete;
+	OpSmoothDifference(Node* l, Node* r, const double& a = 1.0) : OpSmooth(l, r, a) {}
+
+	double Signed(const Vector&) const;
 };
 
 #endif

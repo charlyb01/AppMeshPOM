@@ -237,5 +237,8 @@
     <ClInclude Include="Include\ui-interface.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Include\op_smooth.h">
+      <Filter>Include\SDF</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
