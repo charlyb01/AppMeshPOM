@@ -6,9 +6,9 @@
 class Terrain : public Node
 {
 public:
-	double Signed(const Vector& vec) const;
+	double Signed(const Vector&) const;
 
-	static double Noise(const Vector& vec);
+	static double Noise(const Vector&);
 };
 
 #endif

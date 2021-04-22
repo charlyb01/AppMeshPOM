@@ -5,9 +5,14 @@
 
 class Boite : public Node
 {
+protected:
+	Vector diagonal;
+
 public:
-	double Signed(const Vector& vec) const;
-	double Signed(const Vector& p, const Vector& b) const;
+	Boite() : Boite(Vector(1, 1, 1)) {}
+	Boite(const Vector& d) : diagonal(d / 2.0) {}
+
+	double Signed(const Vector&) const;
 };
 
 #endif

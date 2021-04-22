@@ -5,9 +5,14 @@
 
 class Ellipsoid : public Node
 {
+protected:
+	Vector radius;
+
 public:
-	double Signed(const Vector& vec) const;
-	double Signed(const Vector& p, const Vector& r) const;
+	Ellipsoid() : Ellipsoid(Vector::Y) {}
+	Ellipsoid(const Vector& r) : radius(r) {}
+
+	double Signed(const Vector&) const;
 };
 
 #endif

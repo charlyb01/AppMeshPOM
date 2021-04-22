@@ -1,13 +1,18 @@
-#ifndef __PYRAMIDE__
-#define __PYRAMIDE__
+#ifndef __PYRAMID__
+#define __PYRAMID__
 
 #include "node.h"
 
 class Pyramid : public Node
 {
+protected:
+	double height;
+
 public:
-	double Signed(const Vector& vec) const;
-	double Signed(const Vector& p, const float& h) const;
+	Pyramid() : Pyramid(1.0) {}
+	Pyramid(const double& h) : height(h) {}
+
+	double Signed(const Vector&) const;
 };
 
 #endif

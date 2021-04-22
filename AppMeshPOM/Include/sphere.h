@@ -5,9 +5,14 @@
 
 class Sphere : public Node
 {
+protected:
+	double radius;
+
 public:
-	double Signed(const Vector& vec) const;
-	double Signed(const Vector& vec, const float& r) const;
+	Sphere() : Sphere(1.0) {}
+	Sphere(const double& r) : radius(r) {}
+
+	double Signed(const Vector&) const;
 };
 
 #endif

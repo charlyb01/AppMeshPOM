@@ -1,15 +1,8 @@
 #include "ellipsoid.h"
-#include "evector.h"
-#include "mathematics.h"
 
-double Ellipsoid::Signed(const Vector& p)const
+double Ellipsoid::Signed(const Vector& vec) const
 {
-	return Signed(p, Vector(1, 1, 1));
-}
-
-double Ellipsoid::Signed(const Vector& p, const Vector& r)const
-{
-	float k0 = Norm(p / r);
-	float k1 = Norm(p / (r * r));
+	double k0 = Norm(vec / radius);					// Should be component-wise! WRONG
+	double k1 = Norm(vec / (radius * radius));		// Should be component-wise! WRONG
 	return k0 * (k0 - 1.0) / k1;
 }

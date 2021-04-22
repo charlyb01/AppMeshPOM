@@ -5,9 +5,15 @@
 
 class Cone : public Node
 {
+protected:
+	Vector2 angle;
+	double height;
+
 public:
-	double Signed(const Vector& vec) const;
-	double Signed(const Vector& p, const Vector2&  c, const float& h) const;
+	Cone() : Cone(Vector2::Null, 1.0) {}
+	Cone(const Vector2& a, const double& h) : angle(a), height(h) {}
+
+	double Signed(const Vector&) const;
 };
 
 #endif

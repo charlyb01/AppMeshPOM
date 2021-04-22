@@ -5,9 +5,14 @@
 
 class Torus : public Node
 {
+protected:
+	Vector2 radiuses;
+
 public:
-	double Signed(const Vector& vec) const;
-	double Signed(const Vector& p, const Vector2& t) const;
+	Torus() : Torus(Vector2(1.0, 0.5)) {}
+	Torus(const Vector2& r) : radiuses(r) {}
+
+	double Signed(const Vector&) const;
 };
 
 #endif

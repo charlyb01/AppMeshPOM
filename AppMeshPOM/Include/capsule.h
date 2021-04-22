@@ -5,9 +5,15 @@
 
 class Capsule : public Node
 {
+protected:
+	Vector bottomLeft, topRight;
+	double radius;
+
 public:
-	double Signed(const Vector& vec) const;
-	double Signed(const Vector& p, const Vector& a, const Vector& b, const float& r) const;
+	Capsule() : Capsule(Vector::Null, Vector::Y, 1.0) {}
+	Capsule(const Vector& a, const Vector& b, const double& r) : bottomLeft(a), topRight(b), radius(r) {}
+
+	double Signed(const Vector&) const;
 };
 
 #endif

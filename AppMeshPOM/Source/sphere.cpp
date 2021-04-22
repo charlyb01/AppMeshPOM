@@ -1,12 +1,6 @@
 #include "sphere.h"
-#include "evector.h"
 
-double Sphere::Signed(const Vector& p)const
+double Sphere::Signed(const Vector& vec) const
 {
-	return Signed(p, 1);
-}
-
-double Sphere::Signed(const Vector& p, const float& s)const
-{
-	return Norm(p)- s;
+	return Norm(vec)- radius;
 }
