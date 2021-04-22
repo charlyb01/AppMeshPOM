@@ -80,9 +80,6 @@
     <ClCompile Include="Source\pyramid.cpp">
       <Filter>Source\SDF\Primitives</Filter>
     </ClCompile>
-    <ClCompile Include="Source\triangular_prism.cpp">
-      <Filter>Source\SDF\Primitives</Filter>
-    </ClCompile>
     <ClCompile Include="Source\torus.cpp">
       <Filter>Source\SDF\Primitives</Filter>
     </ClCompile>
@@ -211,9 +208,6 @@
       <Filter>Include\SDF\Primitives</Filter>
     </ClInclude>
     <ClInclude Include="Include\cone.h">
-      <Filter>Include\SDF\Primitives</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\triangular_prism.h">
       <Filter>Include\SDF\Primitives</Filter>
     </ClInclude>
     <ClInclude Include="Include\capsule.h">

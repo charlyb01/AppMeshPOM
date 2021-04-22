@@ -130,7 +130,6 @@
     <ClCompile Include="Source\torus.cpp" />
     <ClCompile Include="Source\terrain.cpp" />
     <ClCompile Include="Source\triangle.cpp" />
-    <ClCompile Include="Source\triangular_prism.cpp" />
     <ClCompile Include="Source\triangulation.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -199,7 +198,6 @@
     <ClInclude Include="Include\ray.h" />
     <ClInclude Include="Include\shader-api.h" />
     <ClInclude Include="Include\sphere.h" />
-    <ClInclude Include="Include\triangular_prism.h" />
     <ClInclude Include="Include\terrain.h" />
     <ClInclude Include="Include\triangulation.h" />
     <ClInclude Include="Include\ui-interface.h" />
