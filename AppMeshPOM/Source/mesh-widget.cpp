@@ -375,8 +375,8 @@ void MeshWidget::paintGL()
 	glUseProgram(mainShaderProgram);
 
 	// Shared uniforms
-	glUniformMatrix4fv(glGetUniformLocation(mainShaderProgram, "gl_ModelViewMatrix"), 1, 0, ModelViewMatrix);
-	glUniformMatrix4fv(glGetUniformLocation(mainShaderProgram, "gl_ProjectionMatrix"), 1, 0, ProjectionMatrix);
+	glUniformMatrix4fv(glGetUniformLocation(mainShaderProgram, "ModelViewMatrix"), 1, 0, ModelViewMatrix);
+	glUniformMatrix4fv(glGetUniformLocation(mainShaderProgram, "ProjectionMatrix"), 1, 0, ProjectionMatrix);
 
 	for (MeshIterator i = objects.begin(); i != objects.end(); i++)
 	{

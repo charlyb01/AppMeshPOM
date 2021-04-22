@@ -6,8 +6,8 @@ layout(location = 0) in vec3 vertex;
 layout(location = 1) in vec3 normal;
 layout(location = 2) in vec3 color;
 
-uniform mat4 gl_ModelViewMatrix;
-uniform mat4 gl_ProjectionMatrix;
+uniform mat4 ModelViewMatrix;
+uniform mat4 ProjectionMatrix;
 uniform mat4 TRSMatrix;
 
 out vec3 geomNormal;
@@ -16,7 +16,7 @@ out vec3 geomColor;
 
 void main(void)
 {
-	mat4 MVP      = gl_ProjectionMatrix * gl_ModelViewMatrix;
+	mat4 MVP      = ProjectionMatrix * ModelViewMatrix;
 	gl_Position   = MVP * TRSMatrix * (vec4(vertex, 1.0)); 
 	geomNormal	  = (TRSMatrix * vec4(normalize(normal), 0.0f)).xyz;
 	geomVertex 	  = vertex;
