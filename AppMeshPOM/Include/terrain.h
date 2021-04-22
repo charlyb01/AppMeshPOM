@@ -3,7 +3,7 @@
 
 #include "node.h"
 
-class Terrain
+class Terrain : public Node
 {
 public:
 	double Signed(const Vector& vec) const;
