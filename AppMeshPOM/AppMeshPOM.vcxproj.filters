@@ -240,5 +240,8 @@
     <ClInclude Include="Include\MeshReconstruction.h">
       <Filter>Include\Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="Include\ui-interface.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

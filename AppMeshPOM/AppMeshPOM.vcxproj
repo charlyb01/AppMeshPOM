@@ -202,6 +202,7 @@
     <ClInclude Include="Include\triangular_prism.h" />
     <ClInclude Include="Include\terrain.h" />
     <ClInclude Include="Include\Triangulation.h" />
+    <ClInclude Include="Include\ui-interface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
