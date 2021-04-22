@@ -1,4 +1,4 @@
-#include "Cube.h"
+#include "cube.h"
 
 using namespace MeshReconstruction;
 
@@ -67,29 +67,29 @@ namespace
 
 Vector Cube::LerpVertex(double isoLevel, int i1, int i2) const
 {
-	auto const Eps = 1e-5;
-	auto const v1 = sdf[i1];
-	auto const v2 = sdf[i2];
-	auto const& p1 = pos[i1];
-	auto const& p2 = pos[i2];
+	double const Eps = 1e-5;
+	double const v1 = sdf[i1];
+	double const v2 = sdf[i2];
+	Vector const& p1 = pos[i1];
+	Vector const& p2 = pos[i2];
 
 	if (abs(isoLevel - v1) < Eps) return p1;
 	if (abs(isoLevel - v2) < Eps) return p2;
 	if (abs(v1 - v2) < Eps) return p1;
 
-	auto mu = (isoLevel - v1) / (v2 - v1);
+	double mu = (isoLevel - v1) / (v2 - v1);
 	return p1 + (p2 - p1)*mu;
 }
 
 Cube::Cube(Rect3 const& space, Fun3s const& sdf)
 {
-	auto mx = space.min[0];
-	auto my = space.min[1];
-	auto mz = space.min[2];
+	double mx = space.min[0];
+	double my = space.min[1];
+	double mz = space.min[2];
 
-	auto sx = space.size[0];
-	auto sy = space.size[1];
-	auto sz = space.size[2];
+	double sx = space.size[0];
+	double sy = space.size[1];
+	double sz = space.size[2];
 
 	pos[0] = space.min;
 	pos[1] = Vector( mx + sx, my, mz );
@@ -100,9 +100,9 @@ Cube::Cube(Rect3 const& space, Fun3s const& sdf)
 	pos[6] = Vector( mx + sx, my + sy, mz + sz );
 	pos[7] = Vector( mx, my + sy, mz + sz );
 
-	for (auto i = 0; i < 8; ++i)
+	for (unsigned i = 0; i < 8; ++i)
 	{
-		auto sd = sdf(pos[i]);
+		double sd = sdf(pos[i]);
 		if (sd == 0) sd += 1e-6;
 		this->sdf[i] = sd;
 	}
@@ -110,9 +110,9 @@ Cube::Cube(Rect3 const& space, Fun3s const& sdf)
 
 int Cube::SignConfig(double isoLevel) const
 {
-	auto edgeIndex = 0;
+	int edgeIndex = 0;
 
-	for (auto i = 0; i < 8; ++i)
+	for (unsigned i = 0; i < 8; ++i)
 	{
 		if (sdf[i] < isoLevel)
 		{
@@ -133,13 +133,13 @@ IntersectInfo Cube::Intersect(double iso) const
 	IntersectInfo intersect;
 	intersect.signConfig = SignConfig(iso);
 
-	for (auto e = 0; e<12; ++e)
+	for (unsigned e = 0; e<12; ++e)
 	{
 		if (signConfigToIntersectedEdges[intersect.signConfig] & edges[e].edgeFlag)
 		{
-			auto v0 = edges[e].vert0;
-			auto v1 = edges[e].vert1;
-			auto vert = LerpVertex(iso, v0, v1);
+			int v0 = edges[e].vert0;
+			int v1 = edges[e].vert1;
+			Vector vert = LerpVertex(iso, v0, v1);
 			intersect.edgeVertIndices[e] = vert;
 		}
 	}

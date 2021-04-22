@@ -1,4 +1,4 @@
-#include "Triangulation.h"
+#include "triangulation.h"
 
 namespace
 {
@@ -278,25 +278,25 @@ void MeshReconstruction::Triangulate(
 	QVector<Vector> vertices;
 	QVector<Vector> normals;
 
-	for (auto i = 0; tri[i] != -1; i += 3)
+	for (unsigned i = 0; tri[i] != -1; i += 3)
 	{
-		auto const& v0 = intersect.edgeVertIndices[tri[i]];
-		auto const& v1 = intersect.edgeVertIndices[tri[i + 1]];
-		auto const& v2 = intersect.edgeVertIndices[tri[i + 2]];
+		Vector const& v0 = intersect.edgeVertIndices[tri[i]];
+		Vector const& v1 = intersect.edgeVertIndices[tri[i + 1]];
+		Vector const& v2 = intersect.edgeVertIndices[tri[i + 2]];
 
 		vertices.push_back(v0);
 		vertices.push_back(v1);
 		vertices.push_back(v2);
 
-		auto normal0 = Normalized(grad(v0));
-		auto normal1 = Normalized(grad(v1));
-		auto normal2 = Normalized(grad(v2));
+		Vector normal0 = Normalized(grad(v0));
+		Vector normal1 = Normalized(grad(v1));
+		Vector normal2 = Normalized(grad(v2));
 
 		normals.push_back(normal0);
 		normals.push_back(normal1);
 		normals.push_back(normal2);
 
-		auto last = static_cast<int>(vertices.size() - 1);
+		int last = static_cast<int>(vertices.size() - 1);
 
 		mesh.AddTriangle(last - 2, last - 1, last, i/3);
 	}

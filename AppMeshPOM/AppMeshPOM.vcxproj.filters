@@ -89,13 +89,13 @@
     <ClCompile Include="Source\terrain.cpp">
       <Filter>Source\SDF\Primitives</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Cube.cpp">
+    <ClCompile Include="Source\cube.cpp">
       <Filter>Source\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Source\MeshReconstruction.cpp">
+    <ClCompile Include="Source\mesh_reconstruction.cpp">
       <Filter>Source\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Triangulation.cpp">
+    <ClCompile Include="Source\triangulation.cpp">
       <Filter>Source\Render</Filter>
     </ClCompile>
   </ItemGroup>
@@ -228,16 +228,16 @@
     <ClInclude Include="Include\terrain.h">
       <Filter>Include\SDF\Primitives</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Cube.h">
+    <ClInclude Include="Include\cube.h">
       <Filter>Include\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="Include\DataStructs.h">
+    <ClInclude Include="Include\data_structs.h">
       <Filter>Include\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Triangulation.h">
+    <ClInclude Include="Include\triangulation.h">
       <Filter>Include\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="Include\MeshReconstruction.h">
+    <ClInclude Include="Include\mesh_reconstruction.h">
       <Filter>Include\Mesh</Filter>
     </ClInclude>
     <ClInclude Include="Include\ui-interface.h">

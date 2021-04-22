@@ -43,7 +43,7 @@ public:
     QGroupBox *Objects_groupBox;
     QPushButton *boxMesh;
     QPushButton *resetcameraButton;
-    QPushButton* boxTerrain;
+    QPushButton *boxTerrain;
     QWidget *widget_GL;
     QGroupBox *Parameters_groupBox;
     QGroupBox *groupBox_4;
@@ -100,16 +100,16 @@ public:
         boxMesh->setObjectName(QString::fromUtf8("boxMesh"));
         boxMesh->setGeometry(QRect(20, 20, 81, 23));
         boxMesh->setCheckable(false);
-        boxTerrain = new QPushButton(Objects_groupBox);
-        boxTerrain->setObjectName(QString::fromUtf8("boxTerrain"));
-        boxTerrain->setGeometry(QRect(20, 50, 81, 23));
-        boxTerrain->setCheckable(false);
         resetcameraButton = new QPushButton(Objects_groupBox);
         resetcameraButton->setObjectName(QString::fromUtf8("resetcameraButton"));
         resetcameraButton->setGeometry(QRect(110, 20, 81, 23));
         resetcameraButton->setCheckable(true);
         resetcameraButton->setAutoDefault(false);
         resetcameraButton->setFlat(false);
+        boxTerrain = new QPushButton(Objects_groupBox);
+        boxTerrain->setObjectName(QString::fromUtf8("boxTerrain"));
+        boxTerrain->setGeometry(QRect(20, 50, 81, 23));
+        boxTerrain->setCheckable(false);
 
         hboxLayout->addWidget(Objects_groupBox);
 
@@ -201,13 +201,18 @@ public:
 #endif // QT_NO_TOOLTIP
         boxMesh->setText(QApplication::translate("Assets", "Box Mesh", nullptr));
 #ifndef QT_NO_TOOLTIP
-        boxTerrain->setToolTip(QApplication::translate("Assets", "<html><head/><body><p><span style=\" color:#5500ff;\">Callback #03</span></p><p><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bird</span></p></body></html>", nullptr));
-#endif // QT_NO_TOOLTIP
-        boxTerrain->setText(QApplication::translate("Assets", "Terrain", nullptr));
-#ifndef QT_NO_TOOLTIP
         resetcameraButton->setToolTip(QApplication::translate("Assets", "<html><head/><body><p><span style=\" color:#5500ff;\">Callback #03</span></p><p><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bird</span></p></body></html>", nullptr));
 #endif // QT_NO_TOOLTIP
         resetcameraButton->setText(QApplication::translate("Assets", "Reset Camera", nullptr));
+#ifndef QT_NO_TOOLTIP
+        boxTerrain->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxTerrain->setText(QApplication::translate("Assets", "Terrain", nullptr));
         Parameters_groupBox->setTitle(QString());
         groupBox_4->setTitle(QApplication::translate("Assets", " Statistics", nullptr));
         label_2->setText(QApplication::translate("Assets", "Vertex", nullptr));

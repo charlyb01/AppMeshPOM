@@ -1,6 +1,6 @@
 #pragma once
-#include "Cube.h"
-#include "DataStructs.h"
+#include "cube.h"
+#include "data_structs.h"
 
 namespace MeshReconstruction
 {

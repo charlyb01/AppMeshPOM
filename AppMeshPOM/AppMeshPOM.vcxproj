@@ -104,7 +104,7 @@
     <ClCompile Include="Source\camera.cpp" />
     <ClCompile Include="Source\capsule.cpp" />
     <ClCompile Include="Source\cone.cpp" />
-    <ClCompile Include="Source\Cube.cpp" />
+    <ClCompile Include="Source\cube.cpp" />
     <ClCompile Include="Source\ellipsoid.cpp" />
     <ClCompile Include="Source\evector.cpp" />
     <ClCompile Include="Source\evector2.cpp" />
@@ -112,7 +112,7 @@
     <ClCompile Include="Source\mesh-widget.cpp" />
     <ClCompile Include="Source\mesh.cpp" />
     <ClCompile Include="Source\meshcolor.cpp" />
-    <ClCompile Include="Source\MeshReconstruction.cpp" />
+    <ClCompile Include="Source\mesh_reconstruction.cpp" />
     <ClCompile Include="Source\moc_qte.cpp" />
     <ClCompile Include="Source\operator.cpp" />
     <ClCompile Include="Source\op_difference.cpp" />
@@ -131,7 +131,7 @@
     <ClCompile Include="Source\terrain.cpp" />
     <ClCompile Include="Source\triangle.cpp" />
     <ClCompile Include="Source\triangular_prism.cpp" />
-    <ClCompile Include="Source\Triangulation.cpp" />
+    <ClCompile Include="Source\triangulation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Include\qte.h">
@@ -175,10 +175,10 @@
     <ClInclude Include="Include\boite.h" />
     <ClInclude Include="Include\capsule.h" />
     <ClInclude Include="Include\cone.h" />
-    <ClInclude Include="Include\Cube.h" />
-    <ClInclude Include="Include\DataStructs.h" />
+    <ClInclude Include="Include\cube.h" />
+    <ClInclude Include="Include\data_structs.h" />
     <ClInclude Include="Include\ellipsoid.h" />
-    <ClInclude Include="Include\MeshReconstruction.h" />
+    <ClInclude Include="Include\mesh_reconstruction.h" />
     <ClInclude Include="Include\pyramid.h" />
     <ClInclude Include="Include\torus.h" />
     <ClInclude Include="Include\node.h" />
@@ -201,7 +201,7 @@
     <ClInclude Include="Include\sphere.h" />
     <ClInclude Include="Include\triangular_prism.h" />
     <ClInclude Include="Include\terrain.h" />
-    <ClInclude Include="Include\Triangulation.h" />
+    <ClInclude Include="Include\triangulation.h" />
     <ClInclude Include="Include\ui-interface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

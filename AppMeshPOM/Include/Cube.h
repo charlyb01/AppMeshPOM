@@ -1,5 +1,5 @@
 #pragma once
-#include "DataStructs.h"
+#include "data_structs.h"
 
 namespace MeshReconstruction
 {

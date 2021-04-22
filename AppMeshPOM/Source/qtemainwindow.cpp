@@ -1,7 +1,7 @@
 #include "qte.h"
-#include "MeshReconstruction.h"
+#include "mesh_reconstruction.h"
 #include "terrain.h"
-#include "DataStructs.h"
+#include "data_structs.h"
 
 MainWindow::MainWindow()
 {
