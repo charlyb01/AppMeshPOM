@@ -50,8 +50,8 @@ void MainWindow::editingSceneRight(const Ray&)
 void MainWindow::Generate()
 {
 	MeshReconstruction::Rect3 domain;
-	domain.min = Vector( -100, -50, -100 );
-	domain.size = Vector(200, 100, 200);
+	domain.min = Vector( -250, -250, 250 );
+	domain.size = Vector(500, 500, 100);
 
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[](Vector const& pos) { return Terrain().Signed(pos); },

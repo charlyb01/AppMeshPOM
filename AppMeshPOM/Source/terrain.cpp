@@ -8,7 +8,7 @@ double Terrain::Signed(const Vector& vec) const
     const double l0 = 350.0;
     const double a0 = 150.0;
 
-    Vector2 vec2(vec[0], vec[2]);
+    Vector2 vec2(vec);
     Vector2  p = vec2 / l0;
     double a = 0.0;
     double b = 1.0;
@@ -20,7 +20,7 @@ double Terrain::Signed(const Vector& vec) const
         p = m2 * p * 2.0;
     }
     const double terrain2D = a + (vec[0] * vec[0]) / 100.0;
-    return vec[1] - terrain2D;
+    return vec[2] - terrain2D;
 }
 
 double Terrain::Noise(const Vector& vec)
