@@ -14,6 +14,8 @@ private:
 	MeshWidget* meshWidget;		//!< Viewer
 	MeshColor meshColor;		//!< Mesh.
 
+	Node* terrain;
+
 public:
 	MainWindow();
 	~MainWindow();

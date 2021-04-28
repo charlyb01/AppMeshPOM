@@ -15,6 +15,8 @@ MainWindow::MainWindow()
 	GLlayout->setContentsMargins(0, 0, 0, 0);
 	uiw.widget_GL->setLayout(GLlayout);
 
+	terrain = new Terrain();
+
 	// Creation des connect
 	CreateActions();
 
@@ -24,6 +26,7 @@ MainWindow::MainWindow()
 MainWindow::~MainWindow()
 {
 	delete meshWidget;
+	delete terrain;
 }
 
 void MainWindow::CreateActions()
@@ -49,13 +52,16 @@ void MainWindow::editingSceneRight(const Ray&)
 
 void MainWindow::Generate()
 {
+	// Put in a var like terrain (no pointer needed)
+	// So we can chage it with a button
 	MeshReconstruction::Rect3 domain;
 	domain.min = Vector( -250, -250, 250 );
 	domain.size = Vector(500, 500, 100);
-
-	meshColor = MeshColor(MeshReconstruction::MarchCube(
-		[](Vector const& pos) { return Terrain().Signed(pos); },
-		domain));
+	
+	// Find a way so that this works
+	/*meshColor = MeshColor(MeshReconstruction::MarchCube(
+		[](Vector const& pos) { return terrain->Signed(pos); },
+		domain));*/
 	UpdateGeometry();
 }
 
