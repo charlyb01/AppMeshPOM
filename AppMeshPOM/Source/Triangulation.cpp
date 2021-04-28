@@ -275,8 +275,8 @@ void MeshReconstruction::Triangulate(
 	if (intersect.signConfig == 0 || intersect.signConfig == 255) return;
 
 	auto const& tri = signConfigToTriangles[intersect.signConfig];
-	QVector<Vector> vertices;
-	QVector<Vector> normals;
+	QVector<Vector> vertices = mesh.GetVertices();
+	QVector<Vector> normals = mesh.GetNormals();
 
 	for (unsigned i = 0; tri[i] != -1; i += 3)
 	{
