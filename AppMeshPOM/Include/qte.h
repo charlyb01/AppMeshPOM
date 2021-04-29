@@ -4,6 +4,8 @@
 #include "ui-interface.h"
 #include "realtime.h"
 #include "meshcolor.h"
+#include "node.h"
+#include "mesh_reconstruction.h"
 
 class MainWindow : public QMainWindow
 {
@@ -13,8 +15,9 @@ private:
 
 	MeshWidget* meshWidget;		//!< Viewer
 	MeshColor meshColor;		//!< Mesh.
-
+	
 	Node* terrain;
+	MeshReconstruction::Rect3 domain;
 
 public:
 	MainWindow();
