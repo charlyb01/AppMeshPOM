@@ -428,7 +428,7 @@ inline Vector Abs(const Vector& u)
 */
 inline Vector Vector::Floor(const Vector& u)
 {
-    return u / 1.0;
+    return Vector(floor(u.c[0]), floor(u.c[1]), floor(u.c[2]));
 }
 
 /*!

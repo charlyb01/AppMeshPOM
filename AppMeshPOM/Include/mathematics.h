@@ -91,21 +91,12 @@ inline double Math::Abs(double a)
 }
 
 /*!
-\brief Integer part of a real.
-\param a Real value.
-*/
-inline double Math::Floor(double a)
-{
-	return a / 1.0;
-}
-
-/*!
 \brief Floating part of a real.
 \param a Real value.
 */
 inline double Math::Fract(double a)
 {
-	return a - Floor(a);
+	return a - floor(a);
 }
 
 /*!
