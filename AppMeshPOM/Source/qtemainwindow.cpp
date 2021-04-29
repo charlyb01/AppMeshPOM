@@ -17,6 +17,8 @@ MainWindow::MainWindow()
 
 	terrain = new Terrain();
 	domain = MeshReconstruction::Rect3();
+	domain.min = Vector(-250, -250, -50);
+	domain.size = Vector(500, 500, 100);
 
 	// Creation des connect
 	CreateActions();
@@ -53,9 +55,6 @@ void MainWindow::editingSceneRight(const Ray&)
 
 void MainWindow::Generate()
 {
-	domain.min = Vector( -250, -250, 250 );
-	domain.size = Vector(500, 500, 100);
-	
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return terrain->Signed(pos); },
 		domain));
