@@ -6,6 +6,9 @@
 class OpDifference : public Operator
 {
 public:
+	OpDifference() = delete;
+	OpDifference(Node* l, Node* r) : Operator(l, r) {}
+
 	double Signed(const Vector&) const;
 };
 

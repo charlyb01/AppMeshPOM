@@ -6,6 +6,9 @@
 class OpUnion : public Operator
 {
 public:
+	OpUnion() = delete;
+	OpUnion(Node* l, Node* r) : Operator(l, r) {}
+
 	double Signed(const Vector&) const;
 };
 
