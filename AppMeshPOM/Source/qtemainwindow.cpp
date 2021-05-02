@@ -57,7 +57,7 @@ void MainWindow::Generate()
 {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return terrain->Signed(pos); },
-		domain));
+		domain, 1));
 	UpdateGeometry();
 }
 
