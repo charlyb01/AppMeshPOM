@@ -22,18 +22,10 @@ namespace
 	}
 }
 
-Mesh MeshReconstruction::MarchCube(Fun3s const& sdf, Rect3 const& domain)
-{
-	unsigned const NumCubes = 50;
-	Vector cubeSize = domain.size * (1.0 / NumCubes);
-
-	return MarchCube(sdf, domain, cubeSize);
-}
-
 Mesh MeshReconstruction::MarchCube(
 	Fun3s const& sdf,
-	Rect3 const& domain,
-	Vector const& cubeSize,
+	Rect3& domain,
+	unsigned const& cubeSize,
 	double isoLevel,
 	Fun3v sdfGrad)
 {
@@ -42,26 +34,35 @@ Mesh MeshReconstruction::MarchCube(
 		? [&sdf](Vector const& p) { return NumGrad(sdf, p); }
 		: sdfGrad;
 
-	int const NumX = static_cast<int>(ceil(domain.size[0] / cubeSize[0]));
-	int const NumY = static_cast<int>(ceil(domain.size[1] / cubeSize[1]));
-	int const NumZ = static_cast<int>(ceil(domain.size[2] / cubeSize[2]));
+	for (unsigned i = 0; i < 3; i++)
+	{
+		if (int(domain.size[i]) % cubeSize != 0)
+		{
+			domain.size[i] = ((int(domain.size[i]) / double(cubeSize)) + 1) * cubeSize;
+		}
+	}
 
-	double const HalfCubeDiag = Norm(cubeSize) / 2.0;
-	Vector const HalfCubeSize = cubeSize * 0.5;
+	const unsigned NumX = static_cast<unsigned>(ceil(domain.size[0] / cubeSize));
+	const unsigned NumY = static_cast<unsigned>(ceil(domain.size[1] / cubeSize));
+	const unsigned NumZ = static_cast<unsigned>(ceil(domain.size[2] / cubeSize));
+
+	Vector vectorCube = Vector(cubeSize);
+	double const HalfCubeDiag = Norm(vectorCube) / 2.0;
+	Vector const HalfCubeSize = vectorCube * 0.5;
 
 	Mesh mesh;
 
 	for (unsigned ix = 0; ix < NumX; ++ix)
 	{
-		double x = domain.min[0] + ix * cubeSize[0];
+		double x = domain.min[0] + double(ix) * cubeSize;
 			
 		for (unsigned iy = 0; iy < NumY; ++iy)
 		{
-			double y = domain.min[1] + iy * cubeSize[1];
+			double y = domain.min[1] + double(iy) * cubeSize;
 			
 			for (unsigned iz = 0; iz < NumZ; ++iz)
 			{
-				double z = domain.min[2] + iz * cubeSize[2];
+				double z = domain.min[2] + double(iz) * cubeSize;
 				Vector min = Vector(x, y, z);
 
 				// Process only if cube lies within narrow band around surface.
@@ -69,7 +70,7 @@ Mesh MeshReconstruction::MarchCube(
 				double dist = abs(sdf(cubeCenter) - isoLevel);
 				if (dist > HalfCubeDiag) continue;
 
-				Cube cube({ min, cubeSize }, sdf);
+				Cube cube({ min, vectorCube }, sdf);
 				MeshReconstruction::IntersectInfo intersect = cube.Intersect(isoLevel);
 				Triangulate(intersect, sdfGrad, mesh);
 			}
