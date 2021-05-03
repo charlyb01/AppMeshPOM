@@ -95,6 +95,9 @@
     <ClCompile Include="Source\triangulation.cpp">
       <Filter>Source\Render</Filter>
     </ClCompile>
+    <ClCompile Include="Source\mat.cpp">
+      <Filter>Source\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Include\qte.h">
@@ -239,6 +242,9 @@
     </ClInclude>
     <ClInclude Include="Include\op_smooth.h">
       <Filter>Include\SDF</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\mat.h">
+      <Filter>Include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

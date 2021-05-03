@@ -109,6 +109,7 @@
     <ClCompile Include="Source\evector.cpp" />
     <ClCompile Include="Source\evector2.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\mat.cpp" />
     <ClCompile Include="Source\mesh-widget.cpp" />
     <ClCompile Include="Source\mesh.cpp" />
     <ClCompile Include="Source\meshcolor.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Include\cube.h" />
     <ClInclude Include="Include\data_structs.h" />
     <ClInclude Include="Include\ellipsoid.h" />
+    <ClInclude Include="Include\mat.h" />
     <ClInclude Include="Include\mesh_reconstruction.h" />
     <ClInclude Include="Include\op_smooth.h" />
     <ClInclude Include="Include\pyramid.h" />
