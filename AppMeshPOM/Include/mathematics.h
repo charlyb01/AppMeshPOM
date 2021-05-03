@@ -14,7 +14,6 @@ public:
 
 	static double Sign(double);
 	static double Abs(double);
-	static double Floor(double);
 	static double Fract(double);
 
 	static constexpr double DegreeToRadian(double);
