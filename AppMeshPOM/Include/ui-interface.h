@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -73,6 +74,11 @@ public:
     QLabel *label_9;
     QLineEdit *lineRotationY;
     QLineEdit *lineRotationX;
+    QComboBox *selectForm;
+    QGroupBox *groupBox_8;
+    QLineEdit *Sphere;
+    QLabel *label_10;
+    QPushButton *boxSelect;
     QMenuBar *menubar;
     QMenu *menuFile;
 
@@ -175,10 +181,10 @@ public:
         wireframe->setChecked(true);
         groupBox_5 = new QGroupBox(Parameters_groupBox);
         groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
-        groupBox_5->setGeometry(QRect(10, 150, 431, 261));
+        groupBox_5->setGeometry(QRect(10, 140, 431, 261));
         boxAjout = new QPushButton(groupBox_5);
         boxAjout->setObjectName(QString::fromUtf8("boxAjout"));
-        boxAjout->setGeometry(QRect(200, 220, 81, 23));
+        boxAjout->setGeometry(QRect(170, 212, 91, 31));
         boxAjout->setCheckable(false);
         groupBox_6 = new QGroupBox(groupBox_5);
         groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
@@ -240,6 +246,33 @@ public:
         lineRotationX->setObjectName(QString::fromUtf8("lineRotationX"));
         lineRotationX->setGeometry(QRect(140, 20, 81, 20));
         lineRotationX->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        selectForm = new QComboBox(groupBox_5);
+        selectForm->addItem(QString());
+        selectForm->addItem(QString());
+        selectForm->addItem(QString());
+        selectForm->addItem(QString());
+        selectForm->addItem(QString());
+        selectForm->addItem(QString());
+        selectForm->addItem(QString());
+        selectForm->setObjectName(QString::fromUtf8("selectForm"));
+        selectForm->setEnabled(true);
+        selectForm->setGeometry(QRect(250, 40, 101, 21));
+        selectForm->setEditable(false);
+        groupBox_8 = new QGroupBox(groupBox_5);
+        groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
+        groupBox_8->setGeometry(QRect(260, 100, 141, 91));
+        Sphere = new QLineEdit(groupBox_8);
+        Sphere->setObjectName(QString::fromUtf8("Sphere"));
+        Sphere->setEnabled(false);
+        Sphere->setGeometry(QRect(80, 30, 51, 21));
+        Sphere->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_10 = new QLabel(groupBox_8);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setGeometry(QRect(10, 30, 61, 21));
+        boxSelect = new QPushButton(groupBox_5);
+        boxSelect->setObjectName(QString::fromUtf8("boxSelect"));
+        boxSelect->setGeometry(QRect(360, 40, 71, 21));
+        boxSelect->setCheckable(false);
 
         hboxLayout->addWidget(Parameters_groupBox);
 
@@ -307,7 +340,7 @@ public:
         groupBox_13->setTitle(QApplication::translate("Assets", "Shading", nullptr));
         radioShadingButton_1->setText(QApplication::translate("Assets", "Normal", nullptr));
         wireframe->setText(QApplication::translate("Assets", "Wireframe", nullptr));
-        groupBox_5->setTitle(QApplication::translate("Assets", "Ajouter une forme", nullptr));
+        groupBox_5->setTitle(QApplication::translate("Assets", "Add a shape", nullptr));
 #ifndef QT_NO_TOOLTIP
         boxAjout->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -317,11 +350,11 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
 #endif // QT_NO_TOOLTIP
         boxAjout->setText(QApplication::translate("Assets", "Ajouter", nullptr));
-        groupBox_6->setTitle(QApplication::translate("Assets", "Operateur", nullptr));
+        groupBox_6->setTitle(QApplication::translate("Assets", "Operator", nullptr));
         radioShadingButton_2->setText(QApplication::translate("Assets", "Intersection", nullptr));
         radioShadingButton_3->setText(QApplication::translate("Assets", "Union", nullptr));
         radioShadingButton_4->setText(QApplication::translate("Assets", "Difference", nullptr));
-        groupBox_7->setTitle(QApplication::translate("Assets", "Position et rotation", nullptr));
+        groupBox_7->setTitle(QApplication::translate("Assets", "Position and rotation", nullptr));
         lineRotationZ->setText(QString());
         label_6->setText(QApplication::translate("Assets", "Z", nullptr));
         label_4->setText(QApplication::translate("Assets", "X", nullptr));
@@ -332,6 +365,26 @@ public:
         label_9->setText(QApplication::translate("Assets", "RX", nullptr));
         lineRotationY->setText(QString());
         lineRotationX->setText(QString());
+        selectForm->setItemText(0, QApplication::translate("Assets", "Sphere", nullptr));
+        selectForm->setItemText(1, QApplication::translate("Assets", "Box", nullptr));
+        selectForm->setItemText(2, QApplication::translate("Assets", "Capsule", nullptr));
+        selectForm->setItemText(3, QApplication::translate("Assets", "Cone", nullptr));
+        selectForm->setItemText(4, QApplication::translate("Assets", "Ellipsoid", nullptr));
+        selectForm->setItemText(5, QApplication::translate("Assets", "Pyramid", nullptr));
+        selectForm->setItemText(6, QApplication::translate("Assets", "Torus", nullptr));
+
+        groupBox_8->setTitle(QApplication::translate("Assets", "Parametre", nullptr));
+        Sphere->setText(QString());
+        label_10->setText(QString());
+#ifndef QT_NO_TOOLTIP
+        boxSelect->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxSelect->setText(QApplication::translate("Assets", "Select shape", nullptr));
         menuFile->setTitle(QApplication::translate("Assets", "File", nullptr));
     } // retranslateUi
 

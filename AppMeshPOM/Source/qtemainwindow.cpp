@@ -40,6 +40,7 @@ void MainWindow::CreateActions()
 	connect(uiw.resetcameraButton, SIGNAL(clicked()), this, SLOT(ResetCamera()));
 	connect(uiw.wireframe, SIGNAL(clicked()), this, SLOT(UpdateMaterial()));
 	connect(uiw.boxTerrain, SIGNAL(clicked()), this, SLOT(Generate()));
+	connect(uiw.boxSelect, SIGNAL(clicked()), this, SLOT(Select()));
 	connect(uiw.boxAjout, SIGNAL(clicked()), this, SLOT(Ajouter()));
 
 	// Widget edition
@@ -63,6 +64,18 @@ void MainWindow::Generate()
 	UpdateGeometry();
 }
 
+void MainWindow::Select() {
+	int forme = uiw.selectForm->currentIndex();
+	if (forme == 0) {
+		uiw.Sphere->setEnabled(true);
+		uiw.label_10->setText(QString("Rayon"));
+	}
+	else {
+		uiw.Sphere->setEnabled(false);
+		uiw.label_10->setText(QString(""));
+	}
+}
+
 void MainWindow::Ajouter()
 {
 	int x = uiw.linePositionX->text().toInt();
@@ -71,7 +84,6 @@ void MainWindow::Ajouter()
 	int rx = uiw.lineRotationX->text().toInt();
 	int ry = uiw.lineRotationY->text().toInt();
 	int rz = uiw.lineRotationZ->text().toInt();
-
 }
 
 void MainWindow::BoxMeshExample()
