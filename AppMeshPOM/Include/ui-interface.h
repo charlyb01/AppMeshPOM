@@ -57,10 +57,6 @@ public:
     QCheckBox *wireframe;
     QGroupBox *groupBox_5;
     QPushButton *boxAjout;
-    QGroupBox *groupBox_6;
-    QRadioButton *radioShadingButton_2;
-    QRadioButton *radioShadingButton_3;
-    QRadioButton *radioShadingButton_4;
     QGroupBox *groupBox_7;
     QLineEdit *lineRotationZ;
     QLabel *label_6;
@@ -76,9 +72,23 @@ public:
     QLineEdit *lineRotationX;
     QComboBox *selectForm;
     QGroupBox *groupBox_8;
-    QLineEdit *Sphere;
-    QLabel *label_10;
+    QLineEdit *lineParametre_3;
+    QLabel *labelParametre_3;
+    QGroupBox *boxParametre;
+    QLabel *labelParametre;
+    QLineEdit *lineParametreA;
+    QLineEdit *lineParametreB;
+    QLineEdit *lineParametreC;
+    QGroupBox *boxParametre_2;
+    QLabel *labelParametre_2;
+    QLineEdit *lineParametreA_2;
+    QLineEdit *lineParametreB_2;
+    QLineEdit *lineParametreC_2;
     QPushButton *boxSelect;
+    QGroupBox *groupBox_6;
+    QRadioButton *radioShadingButton_2;
+    QRadioButton *radioShadingButton_3;
+    QRadioButton *radioShadingButton_4;
     QMenuBar *menubar;
     QMenu *menuFile;
 
@@ -86,7 +96,7 @@ public:
     {
         if (Assets->objectName().isEmpty())
             Assets->setObjectName(QString::fromUtf8("Assets"));
-        Assets->resize(1200, 1000);
+        Assets->resize(881, 848);
         Assets->setMinimumSize(QSize(420, 300));
         actionExit = new QAction(Assets);
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
@@ -181,26 +191,11 @@ public:
         wireframe->setChecked(true);
         groupBox_5 = new QGroupBox(Parameters_groupBox);
         groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
-        groupBox_5->setGeometry(QRect(10, 140, 431, 261));
+        groupBox_5->setGeometry(QRect(10, 170, 431, 341));
         boxAjout = new QPushButton(groupBox_5);
         boxAjout->setObjectName(QString::fromUtf8("boxAjout"));
-        boxAjout->setGeometry(QRect(170, 212, 91, 31));
+        boxAjout->setGeometry(QRect(300, 200, 91, 31));
         boxAjout->setCheckable(false);
-        groupBox_6 = new QGroupBox(groupBox_5);
-        groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
-        groupBox_6->setGeometry(QRect(10, 140, 141, 101));
-        radioShadingButton_2 = new QRadioButton(groupBox_6);
-        radioShadingButton_2->setObjectName(QString::fromUtf8("radioShadingButton_2"));
-        radioShadingButton_2->setGeometry(QRect(10, 20, 91, 20));
-        radioShadingButton_2->setChecked(false);
-        radioShadingButton_3 = new QRadioButton(groupBox_6);
-        radioShadingButton_3->setObjectName(QString::fromUtf8("radioShadingButton_3"));
-        radioShadingButton_3->setGeometry(QRect(10, 40, 81, 20));
-        radioShadingButton_3->setChecked(false);
-        radioShadingButton_4 = new QRadioButton(groupBox_6);
-        radioShadingButton_4->setObjectName(QString::fromUtf8("radioShadingButton_4"));
-        radioShadingButton_4->setGeometry(QRect(10, 60, 91, 20));
-        radioShadingButton_4->setChecked(true);
         groupBox_7 = new QGroupBox(groupBox_5);
         groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
         groupBox_7->setGeometry(QRect(10, 20, 231, 111));
@@ -256,30 +251,87 @@ public:
         selectForm->addItem(QString());
         selectForm->setObjectName(QString::fromUtf8("selectForm"));
         selectForm->setEnabled(true);
-        selectForm->setGeometry(QRect(250, 40, 101, 21));
+        selectForm->setGeometry(QRect(10, 150, 101, 21));
         selectForm->setEditable(false);
         groupBox_8 = new QGroupBox(groupBox_5);
         groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
-        groupBox_8->setGeometry(QRect(260, 100, 141, 91));
-        Sphere = new QLineEdit(groupBox_8);
-        Sphere->setObjectName(QString::fromUtf8("Sphere"));
-        Sphere->setEnabled(false);
-        Sphere->setGeometry(QRect(80, 30, 51, 21));
-        Sphere->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        label_10 = new QLabel(groupBox_8);
-        label_10->setObjectName(QString::fromUtf8("label_10"));
-        label_10->setGeometry(QRect(10, 30, 61, 21));
+        groupBox_8->setGeometry(QRect(10, 180, 231, 141));
+        lineParametre_3 = new QLineEdit(groupBox_8);
+        lineParametre_3->setObjectName(QString::fromUtf8("lineParametre_3"));
+        lineParametre_3->setEnabled(false);
+        lineParametre_3->setGeometry(QRect(110, 110, 31, 21));
+        lineParametre_3->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        labelParametre_3 = new QLabel(groupBox_8);
+        labelParametre_3->setObjectName(QString::fromUtf8("labelParametre_3"));
+        labelParametre_3->setGeometry(QRect(10, 110, 81, 21));
+        boxParametre = new QGroupBox(groupBox_8);
+        boxParametre->setObjectName(QString::fromUtf8("boxParametre"));
+        boxParametre->setGeometry(QRect(0, 20, 231, 41));
+        labelParametre = new QLabel(boxParametre);
+        labelParametre->setObjectName(QString::fromUtf8("labelParametre"));
+        labelParametre->setGeometry(QRect(10, 10, 81, 21));
+        lineParametreA = new QLineEdit(boxParametre);
+        lineParametreA->setObjectName(QString::fromUtf8("lineParametreA"));
+        lineParametreA->setEnabled(false);
+        lineParametreA->setGeometry(QRect(110, 10, 31, 21));
+        lineParametreA->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        lineParametreB = new QLineEdit(boxParametre);
+        lineParametreB->setObjectName(QString::fromUtf8("lineParametreB"));
+        lineParametreB->setEnabled(false);
+        lineParametreB->setGeometry(QRect(150, 10, 31, 21));
+        lineParametreB->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        lineParametreC = new QLineEdit(boxParametre);
+        lineParametreC->setObjectName(QString::fromUtf8("lineParametreC"));
+        lineParametreC->setEnabled(false);
+        lineParametreC->setGeometry(QRect(190, 10, 31, 21));
+        lineParametreC->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        boxParametre_2 = new QGroupBox(groupBox_8);
+        boxParametre_2->setObjectName(QString::fromUtf8("boxParametre_2"));
+        boxParametre_2->setGeometry(QRect(0, 60, 231, 41));
+        labelParametre_2 = new QLabel(boxParametre_2);
+        labelParametre_2->setObjectName(QString::fromUtf8("labelParametre_2"));
+        labelParametre_2->setGeometry(QRect(10, 10, 81, 21));
+        lineParametreA_2 = new QLineEdit(boxParametre_2);
+        lineParametreA_2->setObjectName(QString::fromUtf8("lineParametreA_2"));
+        lineParametreA_2->setEnabled(false);
+        lineParametreA_2->setGeometry(QRect(110, 10, 31, 21));
+        lineParametreA_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        lineParametreB_2 = new QLineEdit(boxParametre_2);
+        lineParametreB_2->setObjectName(QString::fromUtf8("lineParametreB_2"));
+        lineParametreB_2->setEnabled(false);
+        lineParametreB_2->setGeometry(QRect(150, 10, 31, 21));
+        lineParametreB_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        lineParametreC_2 = new QLineEdit(boxParametre_2);
+        lineParametreC_2->setObjectName(QString::fromUtf8("lineParametreC_2"));
+        lineParametreC_2->setEnabled(false);
+        lineParametreC_2->setGeometry(QRect(190, 10, 31, 21));
+        lineParametreC_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         boxSelect = new QPushButton(groupBox_5);
         boxSelect->setObjectName(QString::fromUtf8("boxSelect"));
-        boxSelect->setGeometry(QRect(360, 40, 71, 21));
+        boxSelect->setGeometry(QRect(120, 150, 71, 21));
         boxSelect->setCheckable(false);
+        groupBox_6 = new QGroupBox(groupBox_5);
+        groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
+        groupBox_6->setGeometry(QRect(270, 20, 141, 111));
+        radioShadingButton_2 = new QRadioButton(groupBox_6);
+        radioShadingButton_2->setObjectName(QString::fromUtf8("radioShadingButton_2"));
+        radioShadingButton_2->setGeometry(QRect(10, 20, 91, 20));
+        radioShadingButton_2->setChecked(false);
+        radioShadingButton_3 = new QRadioButton(groupBox_6);
+        radioShadingButton_3->setObjectName(QString::fromUtf8("radioShadingButton_3"));
+        radioShadingButton_3->setGeometry(QRect(10, 50, 81, 20));
+        radioShadingButton_3->setChecked(false);
+        radioShadingButton_4 = new QRadioButton(groupBox_6);
+        radioShadingButton_4->setObjectName(QString::fromUtf8("radioShadingButton_4"));
+        radioShadingButton_4->setGeometry(QRect(10, 80, 91, 20));
+        radioShadingButton_4->setChecked(true);
 
         hboxLayout->addWidget(Parameters_groupBox);
 
         Assets->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Assets);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1200, 21));
+        menubar->setGeometry(QRect(0, 0, 881, 21));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         Assets->setMenuBar(menubar);
@@ -350,10 +402,6 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
 #endif // QT_NO_TOOLTIP
         boxAjout->setText(QApplication::translate("Assets", "Ajouter", nullptr));
-        groupBox_6->setTitle(QApplication::translate("Assets", "Operator", nullptr));
-        radioShadingButton_2->setText(QApplication::translate("Assets", "Intersection", nullptr));
-        radioShadingButton_3->setText(QApplication::translate("Assets", "Union", nullptr));
-        radioShadingButton_4->setText(QApplication::translate("Assets", "Difference", nullptr));
         groupBox_7->setTitle(QApplication::translate("Assets", "Position and rotation", nullptr));
         lineRotationZ->setText(QString());
         label_6->setText(QApplication::translate("Assets", "Z", nullptr));
@@ -374,8 +422,18 @@ public:
         selectForm->setItemText(6, QApplication::translate("Assets", "Torus", nullptr));
 
         groupBox_8->setTitle(QApplication::translate("Assets", "Parametre", nullptr));
-        Sphere->setText(QString());
-        label_10->setText(QString());
+        lineParametre_3->setText(QString());
+        labelParametre_3->setText(QString());
+        boxParametre->setTitle(QString());
+        labelParametre->setText(QString());
+        lineParametreA->setText(QString());
+        lineParametreB->setText(QString());
+        lineParametreC->setText(QString());
+        boxParametre_2->setTitle(QString());
+        labelParametre_2->setText(QString());
+        lineParametreA_2->setText(QString());
+        lineParametreB_2->setText(QString());
+        lineParametreC_2->setText(QString());
 #ifndef QT_NO_TOOLTIP
         boxSelect->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -385,6 +443,10 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
 #endif // QT_NO_TOOLTIP
         boxSelect->setText(QApplication::translate("Assets", "Select shape", nullptr));
+        groupBox_6->setTitle(QApplication::translate("Assets", "Operator", nullptr));
+        radioShadingButton_2->setText(QApplication::translate("Assets", "Intersection", nullptr));
+        radioShadingButton_3->setText(QApplication::translate("Assets", "Union", nullptr));
+        radioShadingButton_4->setText(QApplication::translate("Assets", "Difference", nullptr));
         menuFile->setTitle(QApplication::translate("Assets", "File", nullptr));
     } // retranslateUi
 

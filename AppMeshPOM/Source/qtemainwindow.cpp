@@ -65,15 +65,66 @@ void MainWindow::Generate()
 }
 
 void MainWindow::Select() {
+	uiw.boxParametre_2->setEnabled(false);
+	uiw.lineParametre_3->setEnabled(false);
+	uiw.labelParametre_2->setText(QString(""));
+	uiw.labelParametre_3->setText(QString(""));
 	int forme = uiw.selectForm->currentIndex();
-	if (forme == 0) {
-		uiw.Sphere->setEnabled(true);
-		uiw.label_10->setText(QString("Rayon"));
+	if (forme == 0) {  //Sphere
+		uiw.lineParametreA->setEnabled(true);
+		uiw.lineParametreB->setEnabled(false);
+		uiw.lineParametreC->setEnabled(false);
+		uiw.labelParametre->setText(QString("Rayon(int)"));
 	}
-	else {
-		uiw.Sphere->setEnabled(false);
-		uiw.label_10->setText(QString(""));
+	else if (forme == 1) {  //Box
+		uiw.lineParametreA->setEnabled(true);
+		uiw.lineParametreB->setEnabled(true);
+		uiw.lineParametreC->setEnabled(true);
+		uiw.labelParametre->setText(QString("Vector"));
 	}
+	else if (forme == 2) {  //Capsule
+		uiw.lineParametreA->setEnabled(true);
+		uiw.lineParametreB->setEnabled(true);
+		uiw.lineParametreC->setEnabled(true);
+		uiw.labelParametre->setText(QString("Vector"));
+		uiw.boxParametre_2->setEnabled(true);
+		uiw.lineParametreA_2->setEnabled(true);
+		uiw.lineParametreB_2->setEnabled(true);
+		uiw.lineParametreC_2->setEnabled(true);
+		uiw.labelParametre_2->setText(QString("Vector"));
+		uiw.lineParametre_3->setEnabled(true);
+		uiw.labelParametre_3->setText(QString("Rayon(double)"));
+	}
+	else if (forme == 3) {  //Cone
+		uiw.lineParametreA->setEnabled(true);
+		uiw.lineParametreB->setEnabled(true);
+		uiw.lineParametreC->setEnabled(true);
+		uiw.labelParametre->setText(QString("Vector"));
+		uiw.boxParametre_2->setEnabled(true);
+		uiw.lineParametreA_2->setEnabled(true);
+		uiw.lineParametreB_2->setEnabled(false);
+		uiw.lineParametreC_2->setEnabled(false);
+		uiw.labelParametre_2->setText(QString("height(double)"));
+	}
+	else if (forme == 4) {  //Ellipsoid
+		uiw.lineParametreA->setEnabled(true);
+		uiw.lineParametreB->setEnabled(true);
+		uiw.lineParametreC->setEnabled(true);
+		uiw.labelParametre->setText(QString("Vector"));
+	}
+	else if (forme == 5) {  //Pyramid
+		uiw.lineParametreA->setEnabled(true);
+		uiw.lineParametreB->setEnabled(false);
+		uiw.lineParametreC->setEnabled(false);
+		uiw.labelParametre->setText(QString("height(double)"));
+	}
+	else if (forme == 6) {  //Torus
+		uiw.lineParametreA->setEnabled(true);
+		uiw.lineParametreB->setEnabled(true);
+		uiw.lineParametreC->setEnabled(false);
+		uiw.labelParametre->setText(QString("Vector2"));
+	}
+
 }
 
 void MainWindow::Ajouter()
@@ -84,6 +135,7 @@ void MainWindow::Ajouter()
 	int rx = uiw.lineRotationX->text().toInt();
 	int ry = uiw.lineRotationY->text().toInt();
 	int rz = uiw.lineRotationZ->text().toInt();
+	int forme = uiw.selectForm->currentIndex();
 }
 
 void MainWindow::BoxMeshExample()
