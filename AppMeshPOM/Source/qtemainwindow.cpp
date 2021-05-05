@@ -1,6 +1,7 @@
 #include "qte.h"
 #include "mesh_reconstruction.h"
 #include "terrain.h"
+#include "sphere.h"
 #include "data_structs.h"
 
 MainWindow::MainWindow()
@@ -39,6 +40,7 @@ void MainWindow::CreateActions()
 	connect(uiw.resetcameraButton, SIGNAL(clicked()), this, SLOT(ResetCamera()));
 	connect(uiw.wireframe, SIGNAL(clicked()), this, SLOT(UpdateMaterial()));
 	connect(uiw.boxTerrain, SIGNAL(clicked()), this, SLOT(Generate()));
+	connect(uiw.boxAjout, SIGNAL(clicked()), this, SLOT(Ajouter()));
 
 	// Widget edition
 	connect(meshWidget, SIGNAL(_signalEditSceneLeft(const Ray&)), this, SLOT(editingSceneLeft(const Ray&)));
@@ -59,6 +61,17 @@ void MainWindow::Generate()
 		[=](Vector const& pos) { return terrain->Signed(pos); },
 		domain, 1));
 	UpdateGeometry();
+}
+
+void MainWindow::Ajouter()
+{
+	int x = uiw.linePositionX->text().toInt();
+	int y = uiw.linePositionY->text().toInt();
+	int z = uiw.linePositionZ->text().toInt();
+	int rx = uiw.lineRotationX->text().toInt();
+	int ry = uiw.lineRotationY->text().toInt();
+	int rz = uiw.lineRotationZ->text().toInt();
+
 }
 
 void MainWindow::BoxMeshExample()

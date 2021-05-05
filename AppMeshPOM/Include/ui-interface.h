@@ -54,6 +54,25 @@ public:
     QGroupBox *groupBox_13;
     QRadioButton *radioShadingButton_1;
     QCheckBox *wireframe;
+    QGroupBox *groupBox_5;
+    QPushButton *boxAjout;
+    QGroupBox *groupBox_6;
+    QRadioButton *radioShadingButton_2;
+    QRadioButton *radioShadingButton_3;
+    QRadioButton *radioShadingButton_4;
+    QGroupBox *groupBox_7;
+    QLineEdit *lineRotationZ;
+    QLabel *label_6;
+    QLabel *label_4;
+    QLabel *label_5;
+    QLineEdit *linePositionZ;
+    QLabel *label_7;
+    QLineEdit *linePositionY;
+    QLineEdit *linePositionX;
+    QLabel *label_8;
+    QLabel *label_9;
+    QLineEdit *lineRotationY;
+    QLineEdit *lineRotationX;
     QMenuBar *menubar;
     QMenu *menuFile;
 
@@ -149,11 +168,78 @@ public:
         radioShadingButton_1 = new QRadioButton(groupBox_13);
         radioShadingButton_1->setObjectName(QString::fromUtf8("radioShadingButton_1"));
         radioShadingButton_1->setGeometry(QRect(20, 20, 61, 20));
-        radioShadingButton_1->setChecked(true);
+        radioShadingButton_1->setChecked(false);
         wireframe = new QCheckBox(groupBox_13);
         wireframe->setObjectName(QString::fromUtf8("wireframe"));
         wireframe->setGeometry(QRect(90, 20, 81, 17));
         wireframe->setChecked(true);
+        groupBox_5 = new QGroupBox(Parameters_groupBox);
+        groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
+        groupBox_5->setGeometry(QRect(10, 150, 431, 261));
+        boxAjout = new QPushButton(groupBox_5);
+        boxAjout->setObjectName(QString::fromUtf8("boxAjout"));
+        boxAjout->setGeometry(QRect(200, 220, 81, 23));
+        boxAjout->setCheckable(false);
+        groupBox_6 = new QGroupBox(groupBox_5);
+        groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
+        groupBox_6->setGeometry(QRect(10, 140, 141, 101));
+        radioShadingButton_2 = new QRadioButton(groupBox_6);
+        radioShadingButton_2->setObjectName(QString::fromUtf8("radioShadingButton_2"));
+        radioShadingButton_2->setGeometry(QRect(10, 20, 91, 20));
+        radioShadingButton_2->setChecked(false);
+        radioShadingButton_3 = new QRadioButton(groupBox_6);
+        radioShadingButton_3->setObjectName(QString::fromUtf8("radioShadingButton_3"));
+        radioShadingButton_3->setGeometry(QRect(10, 40, 81, 20));
+        radioShadingButton_3->setChecked(false);
+        radioShadingButton_4 = new QRadioButton(groupBox_6);
+        radioShadingButton_4->setObjectName(QString::fromUtf8("radioShadingButton_4"));
+        radioShadingButton_4->setGeometry(QRect(10, 60, 91, 20));
+        radioShadingButton_4->setChecked(true);
+        groupBox_7 = new QGroupBox(groupBox_5);
+        groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
+        groupBox_7->setGeometry(QRect(10, 20, 231, 111));
+        lineRotationZ = new QLineEdit(groupBox_7);
+        lineRotationZ->setObjectName(QString::fromUtf8("lineRotationZ"));
+        lineRotationZ->setGeometry(QRect(140, 80, 81, 20));
+        lineRotationZ->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_6 = new QLabel(groupBox_7);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setGeometry(QRect(10, 80, 21, 21));
+        label_4 = new QLabel(groupBox_7);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(10, 20, 21, 21));
+        label_5 = new QLabel(groupBox_7);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setGeometry(QRect(10, 50, 21, 21));
+        linePositionZ = new QLineEdit(groupBox_7);
+        linePositionZ->setObjectName(QString::fromUtf8("linePositionZ"));
+        linePositionZ->setGeometry(QRect(20, 80, 81, 20));
+        linePositionZ->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_7 = new QLabel(groupBox_7);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setGeometry(QRect(110, 80, 21, 21));
+        linePositionY = new QLineEdit(groupBox_7);
+        linePositionY->setObjectName(QString::fromUtf8("linePositionY"));
+        linePositionY->setGeometry(QRect(20, 50, 81, 20));
+        linePositionY->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        linePositionX = new QLineEdit(groupBox_7);
+        linePositionX->setObjectName(QString::fromUtf8("linePositionX"));
+        linePositionX->setGeometry(QRect(20, 20, 81, 20));
+        linePositionX->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_8 = new QLabel(groupBox_7);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setGeometry(QRect(110, 50, 21, 21));
+        label_9 = new QLabel(groupBox_7);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setGeometry(QRect(110, 20, 21, 21));
+        lineRotationY = new QLineEdit(groupBox_7);
+        lineRotationY->setObjectName(QString::fromUtf8("lineRotationY"));
+        lineRotationY->setGeometry(QRect(140, 50, 81, 20));
+        lineRotationY->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        lineRotationX = new QLineEdit(groupBox_7);
+        lineRotationX->setObjectName(QString::fromUtf8("lineRotationX"));
+        lineRotationX->setGeometry(QRect(140, 20, 81, 20));
+        lineRotationX->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         hboxLayout->addWidget(Parameters_groupBox);
 
@@ -221,6 +307,31 @@ public:
         groupBox_13->setTitle(QApplication::translate("Assets", "Shading", nullptr));
         radioShadingButton_1->setText(QApplication::translate("Assets", "Normal", nullptr));
         wireframe->setText(QApplication::translate("Assets", "Wireframe", nullptr));
+        groupBox_5->setTitle(QApplication::translate("Assets", "Ajouter une forme", nullptr));
+#ifndef QT_NO_TOOLTIP
+        boxAjout->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxAjout->setText(QApplication::translate("Assets", "Ajouter", nullptr));
+        groupBox_6->setTitle(QApplication::translate("Assets", "Operateur", nullptr));
+        radioShadingButton_2->setText(QApplication::translate("Assets", "Intersection", nullptr));
+        radioShadingButton_3->setText(QApplication::translate("Assets", "Union", nullptr));
+        radioShadingButton_4->setText(QApplication::translate("Assets", "Difference", nullptr));
+        groupBox_7->setTitle(QApplication::translate("Assets", "Position et rotation", nullptr));
+        lineRotationZ->setText(QString());
+        label_6->setText(QApplication::translate("Assets", "Z", nullptr));
+        label_4->setText(QApplication::translate("Assets", "X", nullptr));
+        label_5->setText(QApplication::translate("Assets", "Y", nullptr));
+        label_7->setText(QApplication::translate("Assets", "RZ", nullptr));
+        linePositionX->setText(QString());
+        label_8->setText(QApplication::translate("Assets", "RY", nullptr));
+        label_9->setText(QApplication::translate("Assets", "RX", nullptr));
+        lineRotationY->setText(QString());
+        lineRotationX->setText(QString());
         menuFile->setTitle(QApplication::translate("Assets", "File", nullptr));
     } // retranslateUi
 
