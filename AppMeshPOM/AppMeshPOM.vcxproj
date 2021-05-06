@@ -119,9 +119,11 @@
     <ClCompile Include="Source\binary_operator.cpp" />
     <ClCompile Include="Source\op_difference.cpp" />
     <ClCompile Include="Source\op_intersection.cpp" />
+    <ClCompile Include="Source\op_rotation.cpp" />
     <ClCompile Include="Source\op_smooth_difference.cpp" />
     <ClCompile Include="Source\op_smooth_intersection.cpp" />
     <ClCompile Include="Source\op_smooth_union.cpp" />
+    <ClCompile Include="Source\op_translation.cpp" />
     <ClCompile Include="Source\op_union.cpp" />
     <ClCompile Include="Source\pyramid.cpp" />
     <ClCompile Include="Source\realtime-moc.cpp" />
@@ -134,6 +136,7 @@
     <ClCompile Include="Source\terrain.cpp" />
     <ClCompile Include="Source\triangle.cpp" />
     <ClCompile Include="Source\triangulation.cpp" />
+    <ClCompile Include="Source\unary_operator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Include\qte.h">
@@ -183,6 +186,8 @@
     <ClInclude Include="Include\mat.h" />
     <ClInclude Include="Include\mesh_reconstruction.h" />
     <ClInclude Include="Include\bin_op_smooth.h" />
+    <ClInclude Include="Include\op_rotation.h" />
+    <ClInclude Include="Include\op_translation.h" />
     <ClInclude Include="Include\pyramid.h" />
     <ClInclude Include="Include\torus.h" />
     <ClInclude Include="Include\node.h" />
@@ -208,6 +213,7 @@
     <ClInclude Include="Include\ui-interface.h" />
     <ClInclude Include="Source\cylinder.h" />
     <ClInclude Include="Source\straw.h" />
+    <ClInclude Include="Include\unary_operator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

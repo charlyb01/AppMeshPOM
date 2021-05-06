@@ -103,6 +103,15 @@
     <ClCompile Include="Source\op_union.cpp">
       <Filter>Source\SDF\Operators\Binary</Filter>
     </ClCompile>
+    <ClCompile Include="Source\unary_operator.cpp">
+      <Filter>Source\SDF\Operators</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\op_rotation.cpp">
+      <Filter>Source\SDF\Operators\Unary</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\op_translation.cpp">
+      <Filter>Source\SDF\Operators\Unary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Include\qte.h">
@@ -158,6 +167,12 @@
     </Filter>
     <Filter Include="Source\SDF\Operators\Binary">
       <UniqueIdentifier>{b82eeb50-d198-477b-8d9a-171eb1cfb865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\SDF\Operators\Unary">
+      <UniqueIdentifier>{b00aecb6-f921-4709-af7d-701f60c3f907}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\SDF\Operators\Unary">
+      <UniqueIdentifier>{cf184a94-6316-4ac9-95ca-eed4f8011329}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +276,15 @@
     </ClInclude>
     <ClInclude Include="Include\binary_operator.h">
       <Filter>Include\SDF\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\unary_operator.h">
+      <Filter>Include\SDF\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\op_translation.h">
+      <Filter>Include\SDF\Operators\Unary</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\op_rotation.h">
+      <Filter>Include\SDF\Operators\Unary</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
