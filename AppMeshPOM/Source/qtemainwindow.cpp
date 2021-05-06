@@ -18,6 +18,9 @@
 #include "op_difference.h"
 #include "op_intersection.h"
 #include "op_union.h"
+#include "op_smooth_difference.h"
+#include "op_smooth_intersection.h"
+#include "op_smooth_union.h"
 
 MainWindow::MainWindow()
 {
@@ -234,18 +237,40 @@ bool MainWindow::updateTerrain()
 	bool intersectionOperator = uiw.radioButtonIntersection->isChecked();
 	bool unionOperator = uiw.radioButtonUnion->isChecked();
 	bool differenceOperator = uiw.radioButtonDifference->isChecked();
+	bool smoothOperator = uiw.Smooth->isChecked();
 
 	if (intersectionOperator)
 	{
-		terrain = new OpIntersection(terrain, primitive);
+		if (smoothOperator)
+		{
+			terrain = new OpSmoothIntersection(terrain, primitive);
+		}
+		else
+		{
+			terrain = new OpIntersection(terrain, primitive);
+		}
 	}
 	else if (unionOperator)
 	{
-		terrain = new OpUnion(terrain, primitive);
+		if (smoothOperator)
+		{
+			terrain = new OpSmoothUnion(terrain, primitive);
+		}
+		else
+		{
+			terrain = new OpUnion(terrain, primitive);
+		}
 	}
 	else if (differenceOperator)
 	{
-		terrain = new OpDifference(terrain, primitive);
+		if (smoothOperator)
+		{
+			terrain = new OpSmoothDifference(terrain, primitive);
+		}
+		else
+		{
+			terrain = new OpDifference(terrain, primitive);
+		}
 	}
 	else
 	{
