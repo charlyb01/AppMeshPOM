@@ -3,5 +3,5 @@
 
 double OpDifference::Signed(const Vector& vec) const
 {
-	return Math::Max(-left->Signed(vec), right->Signed(vec));
+	return Math::Max(-right->Signed(vec), left->Signed(vec));
 }
