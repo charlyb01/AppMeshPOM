@@ -13,6 +13,8 @@
 #include "cylinder.h"
 #include "straw.h"
 
+#include "op_rotation.h"
+#include "op_translation.h"
 #include "op_difference.h"
 #include "op_intersection.h"
 #include "op_union.h"
@@ -208,10 +210,26 @@ Node* MainWindow::makePrimitive()
 	}
 }
 
+Node* MainWindow::transformPrimitive(Node* primitive)
+{
+	double x = uiw.linePositionX->text().toDouble();
+	double y = uiw.linePositionY->text().toDouble();
+	double z = uiw.linePositionZ->text().toDouble();
+	double rx = uiw.lineRotationX->text().toDouble();
+	double ry = uiw.lineRotationY->text().toDouble();
+	double rz = uiw.lineRotationZ->text().toDouble();
+
+	primitive = new OpRotation(primitive, Vector(rx, ry, rz));
+	primitive = new OpTranslation(primitive, Vector(x, y, z));
+
+	return primitive;
+}
+
 bool MainWindow::updateTerrain()
 {
 	Node* primitive = makePrimitive();
 	if (primitive == nullptr) return false;
+	primitive = transformPrimitive(primitive);
 
 	bool intersectionOperator = uiw.radioButtonIntersection->isChecked();
 	bool unionOperator = uiw.radioButtonUnion->isChecked();
@@ -239,14 +257,6 @@ bool MainWindow::updateTerrain()
 
 void MainWindow::Ajouter()
 {
-	double x = uiw.linePositionX->text().toDouble();
-	double y = uiw.linePositionY->text().toDouble();
-	double z = uiw.linePositionZ->text().toDouble();
-	double rx = uiw.lineRotationX->text().toDouble();
-	double ry = uiw.lineRotationY->text().toDouble();
-	double rz = uiw.lineRotationZ->text().toDouble();
-
-	
 	if (updateTerrain())
 	{
 		Generate();

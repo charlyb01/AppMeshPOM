@@ -31,6 +31,7 @@ public slots:
 	void Generate();
 	void Select();
 	Node* makePrimitive();
+	Node* transformPrimitive(Node* primitive);
 	bool updateTerrain();
 	void Ajouter();
 	void BoxMeshExample();
