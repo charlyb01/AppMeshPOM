@@ -41,27 +41,6 @@
     <ClCompile Include="Source\realtime-moc.cpp">
       <Filter>Interface</Filter>
     </ClCompile>
-    <ClCompile Include="Source\op_union.cpp">
-      <Filter>Source\SDF\Operators</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\op_intersection.cpp">
-      <Filter>Source\SDF\Operators</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\op_difference.cpp">
-      <Filter>Source\SDF\Operators</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\op_smooth_union.cpp">
-      <Filter>Source\SDF\Operators</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\op_smooth_difference.cpp">
-      <Filter>Source\SDF\Operators</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\op_smooth_intersection.cpp">
-      <Filter>Source\SDF\Operators</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\operator.cpp">
-      <Filter>Source\SDF</Filter>
-    </ClCompile>
     <ClCompile Include="Source\sphere.cpp">
       <Filter>Source\SDF\Primitives</Filter>
     </ClCompile>
@@ -103,6 +82,26 @@
     </ClCompile>
     <ClCompile Include="Source\straw.cpp">
       <Filter>Source\Core</Filter>
+    <ClCompile Include="Source\binary_operator.cpp">
+      <Filter>Source\SDF\Operators</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\op_difference.cpp">
+      <Filter>Source\SDF\Operators\Binary</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\op_intersection.cpp">
+      <Filter>Source\SDF\Operators\Binary</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\op_smooth_difference.cpp">
+      <Filter>Source\SDF\Operators\Binary</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\op_smooth_intersection.cpp">
+      <Filter>Source\SDF\Operators\Binary</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\op_smooth_union.cpp">
+      <Filter>Source\SDF\Operators\Binary</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\op_union.cpp">
+      <Filter>Source\SDF\Operators\Binary</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +153,12 @@
     <Filter Include="Include\Mesh">
       <UniqueIdentifier>{183e4d70-9cb9-4fc1-aad0-d04e59dd42d8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Include\SDF\Operators\Binary">
+      <UniqueIdentifier>{37265f62-1c31-42f0-94c8-303d538a5c08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\SDF\Operators\Binary">
+      <UniqueIdentifier>{b82eeb50-d198-477b-8d9a-171eb1cfb865}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\evector.h">
@@ -183,28 +188,7 @@
     <ClInclude Include="Include\mathematics.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Include\op_difference.h">
-      <Filter>Include\SDF\Operators</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\op_intersection.h">
-      <Filter>Include\SDF\Operators</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\op_union.h">
-      <Filter>Include\SDF\Operators</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\op_smooth_union.h">
-      <Filter>Include\SDF\Operators</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\op_smooth_intersection.h">
-      <Filter>Include\SDF\Operators</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\op_smooth_difference.h">
-      <Filter>Include\SDF\Operators</Filter>
-    </ClInclude>
     <ClInclude Include="Include\node.h">
-      <Filter>Include\SDF</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\operator.h">
       <Filter>Include\SDF</Filter>
     </ClInclude>
     <ClInclude Include="Include\sphere.h">
@@ -246,9 +230,6 @@
     <ClInclude Include="Include\ui-interface.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="Include\op_smooth.h">
-      <Filter>Include\SDF</Filter>
-    </ClInclude>
     <ClInclude Include="Include\mat.h">
       <Filter>Include</Filter>
     </ClInclude>
@@ -257,6 +238,29 @@
     </ClInclude>
     <ClInclude Include="Source\straw.h">
       <Filter>Include\SDF\Primitives</Filter>
+    <ClInclude Include="Include\op_difference.h">
+      <Filter>Include\SDF\Operators\Binary</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\op_intersection.h">
+      <Filter>Include\SDF\Operators\Binary</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\op_smooth_difference.h">
+      <Filter>Include\SDF\Operators\Binary</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\op_smooth_intersection.h">
+      <Filter>Include\SDF\Operators\Binary</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\op_smooth_union.h">
+      <Filter>Include\SDF\Operators\Binary</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\op_union.h">
+      <Filter>Include\SDF\Operators\Binary</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\bin_op_smooth.h">
+      <Filter>Include\SDF\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\binary_operator.h">
+      <Filter>Include\SDF\Operators</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

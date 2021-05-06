@@ -1,13 +1,13 @@
 #ifndef __OPUNION__
 #define __OPUNION__
 
-#include "operator.h"
+#include "binary_operator.h"
 
-class OpUnion : public Operator
+class OpUnion : public BinaryOperator
 {
 public:
 	OpUnion() = delete;
-	OpUnion(Node* l, Node* r) : Operator(l, r) {}
+	OpUnion(Node* l, Node* r) : BinaryOperator(l, r) {}
 
 	double Signed(const Vector&) const;
 };

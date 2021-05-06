@@ -116,7 +116,7 @@
     <ClCompile Include="Source\meshcolor.cpp" />
     <ClCompile Include="Source\mesh_reconstruction.cpp" />
     <ClCompile Include="Source\moc_qte.cpp" />
-    <ClCompile Include="Source\operator.cpp" />
+    <ClCompile Include="Source\binary_operator.cpp" />
     <ClCompile Include="Source\op_difference.cpp" />
     <ClCompile Include="Source\op_intersection.cpp" />
     <ClCompile Include="Source\op_smooth_difference.cpp" />
@@ -182,11 +182,11 @@
     <ClInclude Include="Include\ellipsoid.h" />
     <ClInclude Include="Include\mat.h" />
     <ClInclude Include="Include\mesh_reconstruction.h" />
-    <ClInclude Include="Include\op_smooth.h" />
+    <ClInclude Include="Include\bin_op_smooth.h" />
     <ClInclude Include="Include\pyramid.h" />
     <ClInclude Include="Include\torus.h" />
     <ClInclude Include="Include\node.h" />
-    <ClInclude Include="Include\operator.h" />
+    <ClInclude Include="Include\binary_operator.h" />
     <ClInclude Include="Include\op_difference.h" />
     <ClInclude Include="Include\op_intersection.h" />
     <ClInclude Include="Include\op_smooth_difference.h" />
