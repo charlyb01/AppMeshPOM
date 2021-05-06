@@ -42,9 +42,17 @@ public:
     QWidget *centralwidget;
     QHBoxLayout *hboxLayout;
     QGroupBox *Objects_groupBox;
-    QPushButton *boxMesh;
+    QPushButton *boxReset;
     QPushButton *resetcameraButton;
     QPushButton *boxTerrain;
+    QGroupBox *groupBoxPrimitives;
+    QPushButton *boxSphere;
+    QPushButton *boxBoite;
+    QPushButton *boxCapsule;
+    QPushButton *boxCone;
+    QPushButton *boxEllipsoid;
+    QPushButton *boxPyramid;
+    QPushButton *boxTorus;
     QWidget *widget_GL;
     QGroupBox *Parameters_groupBox;
     QGroupBox *groupBox_4;
@@ -86,9 +94,10 @@ public:
     QLineEdit *lineParametreC_2;
     QPushButton *boxSelect;
     QGroupBox *groupBox_6;
-    QRadioButton *radioShadingButton_2;
-    QRadioButton *radioShadingButton_3;
-    QRadioButton *radioShadingButton_4;
+    QRadioButton *radioButtonIntersection;
+    QRadioButton *radioButtonUnion;
+    QRadioButton *radioButtonDifference;
+    QCheckBox *Smooth;
     QMenuBar *menubar;
     QMenu *menuFile;
 
@@ -131,10 +140,10 @@ public:
         sizePolicy.setHeightForWidth(Objects_groupBox->sizePolicy().hasHeightForWidth());
         Objects_groupBox->setSizePolicy(sizePolicy);
         Objects_groupBox->setMinimumSize(QSize(350, 250));
-        boxMesh = new QPushButton(Objects_groupBox);
-        boxMesh->setObjectName(QString::fromUtf8("boxMesh"));
-        boxMesh->setGeometry(QRect(20, 20, 81, 23));
-        boxMesh->setCheckable(false);
+        boxReset = new QPushButton(Objects_groupBox);
+        boxReset->setObjectName(QString::fromUtf8("boxReset"));
+        boxReset->setGeometry(QRect(20, 20, 81, 23));
+        boxReset->setCheckable(false);
         resetcameraButton = new QPushButton(Objects_groupBox);
         resetcameraButton->setObjectName(QString::fromUtf8("resetcameraButton"));
         resetcameraButton->setGeometry(QRect(110, 20, 81, 23));
@@ -145,6 +154,37 @@ public:
         boxTerrain->setObjectName(QString::fromUtf8("boxTerrain"));
         boxTerrain->setGeometry(QRect(20, 50, 81, 23));
         boxTerrain->setCheckable(false);
+        groupBoxPrimitives = new QGroupBox(Objects_groupBox);
+        groupBoxPrimitives->setObjectName(QString::fromUtf8("groupBoxPrimitives"));
+        groupBoxPrimitives->setGeometry(QRect(20, 90, 281, 111));
+        boxSphere = new QPushButton(groupBoxPrimitives);
+        boxSphere->setObjectName(QString::fromUtf8("boxSphere"));
+        boxSphere->setGeometry(QRect(10, 20, 81, 23));
+        boxSphere->setCheckable(false);
+        boxBoite = new QPushButton(groupBoxPrimitives);
+        boxBoite->setObjectName(QString::fromUtf8("boxBoite"));
+        boxBoite->setGeometry(QRect(100, 20, 81, 23));
+        boxBoite->setCheckable(false);
+        boxCapsule = new QPushButton(groupBoxPrimitives);
+        boxCapsule->setObjectName(QString::fromUtf8("boxCapsule"));
+        boxCapsule->setGeometry(QRect(190, 20, 81, 23));
+        boxCapsule->setCheckable(false);
+        boxCone = new QPushButton(groupBoxPrimitives);
+        boxCone->setObjectName(QString::fromUtf8("boxCone"));
+        boxCone->setGeometry(QRect(10, 50, 81, 23));
+        boxCone->setCheckable(false);
+        boxEllipsoid = new QPushButton(groupBoxPrimitives);
+        boxEllipsoid->setObjectName(QString::fromUtf8("boxEllipsoid"));
+        boxEllipsoid->setGeometry(QRect(100, 50, 81, 23));
+        boxEllipsoid->setCheckable(false);
+        boxPyramid = new QPushButton(groupBoxPrimitives);
+        boxPyramid->setObjectName(QString::fromUtf8("boxPyramid"));
+        boxPyramid->setGeometry(QRect(190, 50, 81, 23));
+        boxPyramid->setCheckable(false);
+        boxTorus = new QPushButton(groupBoxPrimitives);
+        boxTorus->setObjectName(QString::fromUtf8("boxTorus"));
+        boxTorus->setGeometry(QRect(10, 80, 81, 23));
+        boxTorus->setCheckable(false);
 
         hboxLayout->addWidget(Objects_groupBox);
 
@@ -312,19 +352,23 @@ public:
         boxSelect->setCheckable(false);
         groupBox_6 = new QGroupBox(groupBox_5);
         groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
-        groupBox_6->setGeometry(QRect(270, 20, 141, 111));
-        radioShadingButton_2 = new QRadioButton(groupBox_6);
-        radioShadingButton_2->setObjectName(QString::fromUtf8("radioShadingButton_2"));
-        radioShadingButton_2->setGeometry(QRect(10, 20, 91, 20));
-        radioShadingButton_2->setChecked(false);
-        radioShadingButton_3 = new QRadioButton(groupBox_6);
-        radioShadingButton_3->setObjectName(QString::fromUtf8("radioShadingButton_3"));
-        radioShadingButton_3->setGeometry(QRect(10, 50, 81, 20));
-        radioShadingButton_3->setChecked(false);
-        radioShadingButton_4 = new QRadioButton(groupBox_6);
-        radioShadingButton_4->setObjectName(QString::fromUtf8("radioShadingButton_4"));
-        radioShadingButton_4->setGeometry(QRect(10, 80, 91, 20));
-        radioShadingButton_4->setChecked(true);
+        groupBox_6->setGeometry(QRect(250, 20, 171, 111));
+        radioButtonIntersection = new QRadioButton(groupBox_6);
+        radioButtonIntersection->setObjectName(QString::fromUtf8("radioButtonIntersection"));
+        radioButtonIntersection->setGeometry(QRect(10, 50, 91, 20));
+        radioButtonIntersection->setChecked(false);
+        radioButtonUnion = new QRadioButton(groupBox_6);
+        radioButtonUnion->setObjectName(QString::fromUtf8("radioButtonUnion"));
+        radioButtonUnion->setGeometry(QRect(10, 20, 81, 20));
+        radioButtonUnion->setChecked(true);
+        radioButtonDifference = new QRadioButton(groupBox_6);
+        radioButtonDifference->setObjectName(QString::fromUtf8("radioButtonDifference"));
+        radioButtonDifference->setGeometry(QRect(10, 80, 91, 20));
+        radioButtonDifference->setChecked(false);
+        Smooth = new QCheckBox(groupBox_6);
+        Smooth->setObjectName(QString::fromUtf8("Smooth"));
+        Smooth->setGeometry(QRect(100, 20, 61, 20));
+        Smooth->setChecked(false);
 
         hboxLayout->addWidget(Parameters_groupBox);
 
@@ -363,14 +407,14 @@ public:
         actionSphere_Tracing_png->setText(QApplication::translate("Assets", "Sphere Tracing (.png)", nullptr));
         Objects_groupBox->setTitle(QString());
 #ifndef QT_NO_TOOLTIP
-        boxMesh->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        boxReset->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
 #endif // QT_NO_TOOLTIP
-        boxMesh->setText(QApplication::translate("Assets", "Box Mesh", nullptr));
+        boxReset->setText(QApplication::translate("Assets", "Reset", nullptr));
 #ifndef QT_NO_TOOLTIP
         resetcameraButton->setToolTip(QApplication::translate("Assets", "<html><head/><body><p><span style=\" color:#5500ff;\">Callback #03</span></p><p><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bird</span></p></body></html>", nullptr));
 #endif // QT_NO_TOOLTIP
@@ -384,6 +428,70 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
 #endif // QT_NO_TOOLTIP
         boxTerrain->setText(QApplication::translate("Assets", "Terrain", nullptr));
+        groupBoxPrimitives->setTitle(QApplication::translate("Assets", "Primitives", nullptr));
+#ifndef QT_NO_TOOLTIP
+        boxSphere->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxSphere->setText(QApplication::translate("Assets", "Sphere", nullptr));
+#ifndef QT_NO_TOOLTIP
+        boxBoite->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxBoite->setText(QApplication::translate("Assets", "Box", nullptr));
+#ifndef QT_NO_TOOLTIP
+        boxCapsule->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxCapsule->setText(QApplication::translate("Assets", "Capsule", nullptr));
+#ifndef QT_NO_TOOLTIP
+        boxCone->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxCone->setText(QApplication::translate("Assets", "Cone", nullptr));
+#ifndef QT_NO_TOOLTIP
+        boxEllipsoid->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxEllipsoid->setText(QApplication::translate("Assets", "Ellipsoid", nullptr));
+#ifndef QT_NO_TOOLTIP
+        boxPyramid->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxPyramid->setText(QApplication::translate("Assets", "Pyramid", nullptr));
+#ifndef QT_NO_TOOLTIP
+        boxTorus->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxTorus->setText(QApplication::translate("Assets", "Torus", nullptr));
         Parameters_groupBox->setTitle(QString());
         groupBox_4->setTitle(QApplication::translate("Assets", " Statistics", nullptr));
         label_2->setText(QApplication::translate("Assets", "Vertex", nullptr));
@@ -444,9 +552,10 @@ public:
 #endif // QT_NO_TOOLTIP
         boxSelect->setText(QApplication::translate("Assets", "Select shape", nullptr));
         groupBox_6->setTitle(QApplication::translate("Assets", "Operator", nullptr));
-        radioShadingButton_2->setText(QApplication::translate("Assets", "Intersection", nullptr));
-        radioShadingButton_3->setText(QApplication::translate("Assets", "Union", nullptr));
-        radioShadingButton_4->setText(QApplication::translate("Assets", "Difference", nullptr));
+        radioButtonIntersection->setText(QApplication::translate("Assets", "Intersection", nullptr));
+        radioButtonUnion->setText(QApplication::translate("Assets", "Union", nullptr));
+        radioButtonDifference->setText(QApplication::translate("Assets", "Difference", nullptr));
+        Smooth->setText(QApplication::translate("Assets", "Smooth", nullptr));
         menuFile->setTitle(QApplication::translate("Assets", "File", nullptr));
     } // retranslateUi
 

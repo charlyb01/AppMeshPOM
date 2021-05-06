@@ -36,6 +36,15 @@ public slots:
 	void BoxMeshExample();
 	void ResetCamera();
 	void UpdateMaterial();
+
+
+	void AddSphere();
+	void AddBoite();
+	void AddCapsule();
+	void AddCone();
+	void AddEllipsoid();
+	void AddPyramid();
+	void AddTorus();
 };
 
 #endif

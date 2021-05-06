@@ -47,12 +47,21 @@ MainWindow::~MainWindow()
 void MainWindow::CreateActions()
 {
 	// Buttons
-	connect(uiw.boxMesh, SIGNAL(clicked()), this, SLOT(BoxMeshExample()));
+	connect(uiw.boxReset, SIGNAL(clicked()), this, SLOT(BoxMeshExample()));
 	connect(uiw.resetcameraButton, SIGNAL(clicked()), this, SLOT(ResetCamera()));
 	connect(uiw.wireframe, SIGNAL(clicked()), this, SLOT(UpdateMaterial()));
 	connect(uiw.boxTerrain, SIGNAL(clicked()), this, SLOT(Generate()));
 	connect(uiw.boxSelect, SIGNAL(clicked()), this, SLOT(Select()));
 	connect(uiw.boxAjout, SIGNAL(clicked()), this, SLOT(Ajouter()));
+	
+	// Primitives Buttons
+	connect(uiw.boxSphere, SIGNAL(clicked()), this, SLOT(AddSphere()));
+	connect(uiw.boxBoite, SIGNAL(clicked()), this, SLOT(AddBoite()));
+	connect(uiw.boxCapsule, SIGNAL(clicked()), this, SLOT(AddCapsule()));
+	connect(uiw.boxCone, SIGNAL(clicked()), this, SLOT(AddCone()));
+	connect(uiw.boxEllipsoid, SIGNAL(clicked()), this, SLOT(AddEllipsoid()));
+	connect(uiw.boxPyramid, SIGNAL(clicked()), this, SLOT(AddPyramid()));
+	connect(uiw.boxTorus, SIGNAL(clicked()), this, SLOT(AddTorus()));
 
 	// Widget edition
 	connect(meshWidget, SIGNAL(_signalEditSceneLeft(const Ray&)), this, SLOT(editingSceneLeft(const Ray&)));
@@ -200,9 +209,9 @@ bool MainWindow::updateTerrain()
 	Node* primitive = makePrimitive();
 	if (primitive == nullptr) return false;
 
-	bool intersectionOperator = uiw.radioShadingButton_2->isChecked();
-	bool unionOperator = uiw.radioShadingButton_3->isChecked();
-	bool differenceOperator = uiw.radioShadingButton_4->isChecked();
+	bool intersectionOperator = uiw.radioButtonIntersection->isChecked();
+	bool unionOperator = uiw.radioButtonUnion->isChecked();
+	bool differenceOperator = uiw.radioButtonDifference->isChecked();
 
 	if (intersectionOperator)
 	{
@@ -242,7 +251,7 @@ void MainWindow::Ajouter()
 
 void MainWindow::BoxMeshExample()
 {
-	meshColor = MeshColor(Mesh(Box(Vector(0), 1)));
+	meshColor = MeshColor(Mesh());
 	UpdateGeometry();
 }
 
@@ -265,4 +274,53 @@ void MainWindow::UpdateMaterial()
 void MainWindow::ResetCamera()
 {
 	meshWidget->SetCamera(Camera::View(meshColor.GetBox()));
+}
+
+void MainWindow::AddSphere() {
+	meshColor = MeshColor(MeshReconstruction::MarchCube(
+		[=](Vector const& pos) { return Sphere(30).Signed(pos); },
+		domain, 10));
+	UpdateGeometry();
+}
+
+void MainWindow::AddBoite() {
+	meshColor = MeshColor(MeshReconstruction::MarchCube(
+		[=](Vector const& pos) { return Boite(Vector(50,50,50)).Signed(pos); },
+		domain, 10));
+	UpdateGeometry();
+}
+
+void MainWindow::AddCapsule() {
+	meshColor = MeshColor(MeshReconstruction::MarchCube(
+		[=](Vector const& pos) { return Capsule(Vector(30, 30, 20), Vector(10, 20, 20), 20.0).Signed(pos); },
+		domain, 10));
+	UpdateGeometry();
+}
+
+void MainWindow::AddCone() {
+	meshColor = MeshColor(MeshReconstruction::MarchCube(
+		[=](Vector const& pos) { return Cone(Vector2(30, 30), 10.0).Signed(pos); },
+		domain, 10));
+	UpdateGeometry();
+}
+
+void MainWindow::AddEllipsoid() {
+	meshColor = MeshColor(MeshReconstruction::MarchCube(
+		[=](Vector const& pos) { return Ellipsoid(Vector(30, 10, 10)).Signed(pos); },
+		domain, 10));
+	UpdateGeometry();
+}
+
+void MainWindow::AddPyramid() {
+	meshColor = MeshColor(MeshReconstruction::MarchCube(
+		[=](Vector const& pos) { return Pyramid().Signed(pos); },
+		domain, 10));
+	UpdateGeometry();
+}
+
+void MainWindow::AddTorus() {
+	meshColor = MeshColor(MeshReconstruction::MarchCube(
+		[=](Vector const& pos) { return Torus(Vector2(20, 10)).Signed(pos); },
+		domain, 10));
+	UpdateGeometry();
 }
