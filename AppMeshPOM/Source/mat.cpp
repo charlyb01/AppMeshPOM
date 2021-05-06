@@ -15,9 +15,9 @@ Mat4::Mat4(
 
 Vector Mat4::operator() (const Vector& v) const
 {
-    double xt = m[0][0] * v[0] + m[0][1] * v[1] + m[0][2] * v[2];                  // dot(vec4(m[0]), vec4(v, 0))
-    double yt = m[1][0] * v[0] + m[1][1] * v[1] + m[1][2] * v[2];                  // dot(vec4(m[1]), vec4(v, 0))
-    double zt = m[2][0] * v[0] + m[2][1] * v[1] + m[2][2] * v[2];                  // dot(vec4(m[2]), vec4(v, 0))
+    double xt = m[0][0] * v[0] + m[0][1] * v[1] + m[0][2] * v[2] + m[0][3];         // dot(vec4(m[0]), vec4(v, 0))
+    double yt = m[1][0] * v[0] + m[1][1] * v[1] + m[1][2] * v[2] + m[1][3];         // dot(vec4(m[1]), vec4(v, 0))
+    double zt = m[2][0] * v[0] + m[2][1] * v[1] + m[2][2] * v[2] + m[2][3];         // dot(vec4(m[2]), vec4(v, 0))
     // dot(vec4(m[3]), vec4(v, 0)) == dot(vec4(0, 0, 0, 1), vec4(v, 0)) == 0 par definition
 
     return Vector(xt, yt, zt);
