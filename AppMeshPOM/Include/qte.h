@@ -30,6 +30,8 @@ public slots:
 	void editingSceneRight(const Ray&);
 	void Generate();
 	void Select();
+	Node* makePrimitive();
+	bool updateTerrain();
 	void Ajouter();
 	void BoxMeshExample();
 	void ResetCamera();

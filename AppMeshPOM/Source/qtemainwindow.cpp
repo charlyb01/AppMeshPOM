@@ -1,8 +1,19 @@
 #include "qte.h"
 #include "mesh_reconstruction.h"
-#include "terrain.h"
-#include "sphere.h"
 #include "data_structs.h"
+
+#include "terrain.h"
+#include "boite.h"
+#include "capsule.h"
+#include "cone.h"
+#include "ellipsoid.h"
+#include "pyramid.h"
+#include "sphere.h"
+#include "torus.h"
+
+#include "op_difference.h"
+#include "op_intersection.h"
+#include "op_union.h"
 
 MainWindow::MainWindow()
 {
@@ -19,7 +30,7 @@ MainWindow::MainWindow()
 	terrain = new Terrain();
 	domain = MeshReconstruction::Rect3();
 	domain.min = Vector(-250, -250, -50);
-	domain.size = Vector(500, 500, 100);
+	domain.size = Vector(500, 500, 200);
 
 	// Creation des connect
 	CreateActions();
@@ -60,7 +71,7 @@ void MainWindow::Generate()
 {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return terrain->Signed(pos); },
-		domain, 1));
+		domain, 10));
 	UpdateGeometry();
 }
 
@@ -127,15 +138,106 @@ void MainWindow::Select() {
 
 }
 
+Node* MainWindow::makePrimitive()
+{
+	int shape = uiw.selectForm->currentIndex();
+	switch (shape)
+	{
+	case 0:
+		return new Sphere(
+			uiw.lineParametreA->text().toDouble());
+		break;
+	case 1:
+		return new Boite(
+			Vector(
+				uiw.lineParametreA->text().toDouble(),
+				uiw.lineParametreB->text().toDouble(),
+				uiw.lineParametreC->text().toDouble()));
+		break;
+	case 2:
+		return new Capsule(
+			Vector(
+				uiw.lineParametreA->text().toDouble(),
+				uiw.lineParametreB->text().toDouble(),
+				uiw.lineParametreC->text().toDouble()),
+			Vector(
+				uiw.lineParametreA_2->text().toDouble(),
+				uiw.lineParametreB_2->text().toDouble(),
+				uiw.lineParametreC_2->text().toDouble()),
+			uiw.lineParametre_3->text().toDouble());
+		break;
+	case 3:
+		return new Cone(
+			Vector2(
+				uiw.lineParametreA->text().toDouble(),
+				uiw.lineParametreB->text().toDouble()), 
+			uiw.lineParametreA_2->text().toDouble());
+		break;
+	case 4:
+		return new Ellipsoid(
+			Vector(
+				uiw.lineParametreA->text().toDouble(),
+				uiw.lineParametreB->text().toDouble(),
+				uiw.lineParametreC->text().toDouble()));
+		break;
+	case 5:
+		return new Pyramid(
+			uiw.lineParametreA->text().toDouble());
+		break;
+	case 6:
+		return new Torus(
+			Vector2(
+				uiw.lineParametreA->text().toDouble(),
+				uiw.lineParametreB->text().toDouble()));
+		break;
+	default:
+		return nullptr;
+	}
+}
+
+bool MainWindow::updateTerrain()
+{
+	Node* primitive = makePrimitive();
+	if (primitive == nullptr) return false;
+
+	bool intersectionOperator = uiw.radioShadingButton_2->isChecked();
+	bool unionOperator = uiw.radioShadingButton_3->isChecked();
+	bool differenceOperator = uiw.radioShadingButton_4->isChecked();
+
+	if (intersectionOperator)
+	{
+		terrain = new OpIntersection(terrain, primitive);
+	}
+	else if (unionOperator)
+	{
+		terrain = new OpUnion(terrain, primitive);
+	}
+	else if (differenceOperator)
+	{
+		terrain = new OpDifference(terrain, primitive);
+	}
+	else
+	{
+		return false;
+	}
+
+	return true;
+}
+
 void MainWindow::Ajouter()
 {
-	int x = uiw.linePositionX->text().toInt();
-	int y = uiw.linePositionY->text().toInt();
-	int z = uiw.linePositionZ->text().toInt();
-	int rx = uiw.lineRotationX->text().toInt();
-	int ry = uiw.lineRotationY->text().toInt();
-	int rz = uiw.lineRotationZ->text().toInt();
-	int forme = uiw.selectForm->currentIndex();
+	double x = uiw.linePositionX->text().toDouble();
+	double y = uiw.linePositionY->text().toDouble();
+	double z = uiw.linePositionZ->text().toDouble();
+	double rx = uiw.lineRotationX->text().toDouble();
+	double ry = uiw.lineRotationY->text().toDouble();
+	double rz = uiw.lineRotationZ->text().toDouble();
+
+	
+	if (updateTerrain())
+	{
+		Generate();
+	}
 }
 
 void MainWindow::BoxMeshExample()
