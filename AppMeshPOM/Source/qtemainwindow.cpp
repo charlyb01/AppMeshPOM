@@ -10,6 +10,8 @@
 #include "pyramid.h"
 #include "sphere.h"
 #include "torus.h"
+#include "cylinder.h"
+#include "straw.h"
 
 #include "op_difference.h"
 #include "op_intersection.h"
@@ -62,6 +64,8 @@ void MainWindow::CreateActions()
 	connect(uiw.boxEllipsoid, SIGNAL(clicked()), this, SLOT(AddEllipsoid()));
 	connect(uiw.boxPyramid, SIGNAL(clicked()), this, SLOT(AddPyramid()));
 	connect(uiw.boxTorus, SIGNAL(clicked()), this, SLOT(AddTorus()));
+	connect(uiw.boxCylinder, SIGNAL(clicked()), this, SLOT(AddCylinder()));
+	connect(uiw.boxStraw, SIGNAL(clicked()), this, SLOT(AddStraw()));
 
 	// Widget edition
 	connect(meshWidget, SIGNAL(_signalEditSceneLeft(const Ray&)), this, SLOT(editingSceneLeft(const Ray&)));
@@ -176,11 +180,11 @@ Node* MainWindow::makePrimitive()
 			uiw.lineParametre_3->text().toDouble());
 		break;
 	case 3:
-		return new Cone(
+		/*return new Cone(
 			Vector2(
 				uiw.lineParametreA->text().toDouble(),
 				uiw.lineParametreB->text().toDouble()), 
-			uiw.lineParametreA_2->text().toDouble());
+			uiw.lineParametreA_2->text().toDouble());*/
 		break;
 	case 4:
 		return new Ellipsoid(
@@ -299,7 +303,7 @@ void MainWindow::AddCapsule() {
 
 void MainWindow::AddCone() {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
-		[=](Vector const& pos) { return Cone(Vector2(30, 30), 10.0).Signed(pos); },
+		[=](Vector const& pos) { return Cone(Vector(60, 90,30), Vector(20,20,10)).Signed(pos); },
 		domain, 10));
 	UpdateGeometry();
 }
@@ -313,7 +317,7 @@ void MainWindow::AddEllipsoid() {
 
 void MainWindow::AddPyramid() {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
-		[=](Vector const& pos) { return Pyramid().Signed(pos); },
+		[=](Vector const& pos) { return Pyramid(10.0).Signed(pos); },
 		domain, 10));
 	UpdateGeometry();
 }
@@ -324,3 +328,18 @@ void MainWindow::AddTorus() {
 		domain, 10));
 	UpdateGeometry();
 }
+
+void MainWindow::AddCylinder() {
+	meshColor = MeshColor(MeshReconstruction::MarchCube(
+		[=](Vector const& pos) { return Cylinder(Vector2(40, 70)).Signed(pos); },
+		domain, 10));
+	UpdateGeometry();
+}
+
+void MainWindow::AddStraw() {
+	meshColor = MeshColor(MeshReconstruction::MarchCube(
+		[=](Vector const& pos) { return Straw(Vector(15, 30, 30)).Signed(pos); },
+			domain, 10));
+	UpdateGeometry();
+}
+

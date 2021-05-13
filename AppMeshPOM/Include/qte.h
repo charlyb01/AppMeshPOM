@@ -45,6 +45,8 @@ public slots:
 	void AddEllipsoid();
 	void AddPyramid();
 	void AddTorus();
+	void AddCylinder();
+	void AddStraw();
 };
 
 #endif

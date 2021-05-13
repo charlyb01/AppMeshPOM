@@ -6,12 +6,12 @@
 class Cone : public Node
 {
 protected:
-	Vector2 angle;
-	double height;
+	Vector angle;
+	Vector2 height;
 
 public:
-	Cone() : Cone(Vector2::Null, 1.0) {}
-	Cone(const Vector2& a, const double& h) : angle(a), height(h) {}
+	Cone() : Cone(Vector::Null, Vector::Null) {}
+	Cone(const Vector& a, const Vector& h) : angle(a), height(h) {}
 
 	double Signed(const Vector&) const;
 };

@@ -105,6 +105,7 @@
     <ClCompile Include="Source\capsule.cpp" />
     <ClCompile Include="Source\cone.cpp" />
     <ClCompile Include="Source\cube.cpp" />
+    <ClCompile Include="Source\cylinder.cpp" />
     <ClCompile Include="Source\ellipsoid.cpp" />
     <ClCompile Include="Source\evector.cpp" />
     <ClCompile Include="Source\evector2.cpp" />
@@ -128,6 +129,7 @@
     <ClCompile Include="Source\ray.cpp" />
     <ClCompile Include="Source\shader-api.cpp" />
     <ClCompile Include="Source\sphere.cpp" />
+    <ClCompile Include="Source\straw.cpp" />
     <ClCompile Include="Source\torus.cpp" />
     <ClCompile Include="Source\terrain.cpp" />
     <ClCompile Include="Source\triangle.cpp" />
@@ -204,6 +206,8 @@
     <ClInclude Include="Include\terrain.h" />
     <ClInclude Include="Include\triangulation.h" />
     <ClInclude Include="Include\ui-interface.h" />
+    <ClInclude Include="Source\cylinder.h" />
+    <ClInclude Include="Source\straw.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

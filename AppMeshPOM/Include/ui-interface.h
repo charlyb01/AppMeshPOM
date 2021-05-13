@@ -53,6 +53,8 @@ public:
     QPushButton *boxEllipsoid;
     QPushButton *boxPyramid;
     QPushButton *boxTorus;
+    QPushButton *boxCylinder;
+    QPushButton *boxStraw;
     QWidget *widget_GL;
     QGroupBox *Parameters_groupBox;
     QGroupBox *groupBox_4;
@@ -185,6 +187,14 @@ public:
         boxTorus->setObjectName(QString::fromUtf8("boxTorus"));
         boxTorus->setGeometry(QRect(10, 80, 81, 23));
         boxTorus->setCheckable(false);
+        boxCylinder = new QPushButton(groupBoxPrimitives);
+        boxCylinder->setObjectName(QString::fromUtf8("boxCylinder"));
+        boxCylinder->setGeometry(QRect(100, 80, 81, 23));
+        boxCylinder->setCheckable(false);
+        boxStraw = new QPushButton(groupBoxPrimitives);
+        boxStraw->setObjectName(QString::fromUtf8("boxStraw"));
+        boxStraw->setGeometry(QRect(190, 80, 81, 23));
+        boxStraw->setCheckable(false);
 
         hboxLayout->addWidget(Objects_groupBox);
 
@@ -492,6 +502,24 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
 #endif // QT_NO_TOOLTIP
         boxTorus->setText(QApplication::translate("Assets", "Torus", nullptr));
+#ifndef QT_NO_TOOLTIP
+        boxCylinder->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxCylinder->setText(QApplication::translate("Assets", "Cylinder", nullptr));
+#ifndef QT_NO_TOOLTIP
+        boxStraw->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
+#endif // QT_NO_TOOLTIP
+        boxStraw->setText(QApplication::translate("Assets", "Straw", nullptr));
         Parameters_groupBox->setTitle(QString());
         groupBox_4->setTitle(QApplication::translate("Assets", " Statistics", nullptr));
         label_2->setText(QApplication::translate("Assets", "Vertex", nullptr));
