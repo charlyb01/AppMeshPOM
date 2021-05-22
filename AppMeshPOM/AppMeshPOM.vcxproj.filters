@@ -81,7 +81,8 @@
       <Filter>Source\SDF\Primitives</Filter>
     </ClCompile>
     <ClCompile Include="Source\straw.cpp">
-      <Filter>Source\Core</Filter>
+      <Filter>Source\SDF\Primitives</Filter>
+    </ClCompile>
     <ClCompile Include="Source\binary_operator.cpp">
       <Filter>Source\SDF\Operators</Filter>
     </ClCompile>
@@ -253,6 +254,7 @@
     </ClInclude>
     <ClInclude Include="Source\straw.h">
       <Filter>Include\SDF\Primitives</Filter>
+    </ClInclude>
     <ClInclude Include="Include\op_difference.h">
       <Filter>Include\SDF\Operators\Binary</Filter>
     </ClInclude>

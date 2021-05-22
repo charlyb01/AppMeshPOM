@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[23];
-    char stringdata0[251];
+    QByteArrayData data[25];
+    char stringdata0[272];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -53,7 +53,9 @@ QT_MOC_LITERAL(18, 199, 10), // "AddCapsule"
 QT_MOC_LITERAL(19, 210, 7), // "AddCone"
 QT_MOC_LITERAL(20, 218, 12), // "AddEllipsoid"
 QT_MOC_LITERAL(21, 231, 10), // "AddPyramid"
-QT_MOC_LITERAL(22, 242, 8) // "AddTorus"
+QT_MOC_LITERAL(22, 242, 8), // "AddTorus"
+QT_MOC_LITERAL(23, 251, 11), // "AddCylinder"
+QT_MOC_LITERAL(24, 263, 8) // "AddStraw"
 
     },
     "MainWindow\0editingSceneLeft\0\0Ray\0"
@@ -62,7 +64,8 @@ QT_MOC_LITERAL(22, 242, 8) // "AddTorus"
     "primitive\0updateTerrain\0Ajouter\0"
     "BoxMeshExample\0ResetCamera\0UpdateMaterial\0"
     "AddSphere\0AddBoite\0AddCapsule\0AddCone\0"
-    "AddEllipsoid\0AddPyramid\0AddTorus"
+    "AddEllipsoid\0AddPyramid\0AddTorus\0AddCylinder\0"
+    "AddStraw"
 };
 #undef QT_MOC_LITERAL
 
@@ -72,7 +75,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
+      20,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -98,6 +101,8 @@ static const uint qt_meta_data_MainWindow[] = {
       20,    0,  125,    2, 0x0a /* Public */,
       21,    0,  126,    2, 0x0a /* Public */,
       22,    0,  127,    2, 0x0a /* Public */,
+      23,    0,  128,    2, 0x0a /* Public */,
+      24,    0,  129,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    2,
@@ -107,6 +112,8 @@ static const uint qt_meta_data_MainWindow[] = {
     0x80000000 | 8,
     0x80000000 | 8, 0x80000000 | 8,   10,
     QMetaType::Bool,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -151,6 +158,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 15: _t->AddEllipsoid(); break;
         case 16: _t->AddPyramid(); break;
         case 17: _t->AddTorus(); break;
+        case 18: _t->AddCylinder(); break;
+        case 19: _t->AddStraw(); break;
         default: ;
         }
     }
@@ -185,13 +194,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 18)
+        if (_id < 20)
             qt_static_metacall(this, _c, _id, _a);
         _id -= 18;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 18)
+        if (_id < 20)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 18;
+        _id -= 20;
     }
     return _id;
 }
