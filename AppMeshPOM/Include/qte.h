@@ -48,6 +48,7 @@ public slots:
 	void AddTorus();
 	void AddCylinder();
 	void AddStraw();
+	void AddColumn();
 };
 
 #endif

@@ -66,11 +66,11 @@ void MainWindow::CreateActions()
 	connect(uiw.boxBoite, SIGNAL(clicked()), this, SLOT(AddBoite()));
 	connect(uiw.boxCapsule, SIGNAL(clicked()), this, SLOT(AddCapsule()));
 	connect(uiw.boxCone, SIGNAL(clicked()), this, SLOT(AddCone()));
-	connect(uiw.boxEllipsoid, SIGNAL(clicked()), this, SLOT(AddEllipsoid()));
 	connect(uiw.boxPyramid, SIGNAL(clicked()), this, SLOT(AddPyramid()));
 	connect(uiw.boxTorus, SIGNAL(clicked()), this, SLOT(AddTorus()));
 	connect(uiw.boxCylinder, SIGNAL(clicked()), this, SLOT(AddCylinder()));
 	connect(uiw.boxStraw, SIGNAL(clicked()), this, SLOT(AddStraw()));
+	connect(uiw.boxColumn, SIGNAL(clicked()), this, SLOT(AddColumn()));
 
 	// Widget edition
 	connect(meshWidget, SIGNAL(_signalEditSceneLeft(const Ray&)), this, SLOT(editingSceneLeft(const Ray&)));
@@ -378,3 +378,11 @@ void MainWindow::AddStraw() {
 	UpdateGeometry();
 }
 
+void MainWindow::AddColumn() {
+	Node* primitive = new OpRotation(new Cylinder(Vector2(15, 70)), Vector(90, 0, 0));
+	primitive = new OpTranslation(primitive, Vector(0, 0, 30));
+	Node* primitive2 = new OpTranslation(new Boite(Vector(50, 50, 20)), Vector(0, 0, 105));
+	Node* primitive3 = new OpTranslation(new Boite(Vector(50, 50, 20)), Vector(0, 0, -35));
+	terrain = new OpUnion(new OpUnion(primitive, primitive2), primitive3);
+	Generate();
+}
