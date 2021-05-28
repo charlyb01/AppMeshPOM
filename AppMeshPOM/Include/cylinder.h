@@ -3,6 +3,10 @@
 
 #include "node.h"
 
+/**
+* @class Cylinder Include/cylinder.h
+* @brief Primitive for a cylinder SDF
+*/
 class Cylinder : public Node
 {
 protected:

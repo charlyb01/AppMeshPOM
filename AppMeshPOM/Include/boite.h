@@ -3,6 +3,10 @@
 
 #include "node.h"
 
+/**
+* @class Boite Include/boite.h
+* @brief Primitive for a box SDF
+*/
 class Boite : public Node
 {
 protected:

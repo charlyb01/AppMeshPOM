@@ -3,6 +3,10 @@
 
 #include "binary_operator.h"
 
+/**
+* @class OpIntersection Include/op_intersection.h
+* @brief Operator to keep the intersection of left and right SDF
+*/
 class OpIntersection : public BinaryOperator
 {
 public:

@@ -3,11 +3,16 @@
 
 #include "node.h"
 
+/**
+* @class Capsule Include/capsule.h
+* @brief Primitive for a capsule SDF
+*/
 class Capsule : public Node
 {
 protected:
-	Vector bottomLeft, topRight;
-	double radius;
+	Vector bottomLeft;		///< Bottom of the capsule
+	Vector topRight;		///< Top of the capsule
+	double radius;			///< Radius of the capsule
 
 public:
 	Capsule() : Capsule(Vector::Null, Vector::Y, 1.0) {}

@@ -3,6 +3,10 @@
 
 #include "unary_operator.h"
 
+/**
+* @class OpRotation Include/op_rotation.h
+* @brief Operator to rotate a SDF
+*/
 class OpRotation : public UnaryOperator
 {
 public:

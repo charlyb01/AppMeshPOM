@@ -3,6 +3,10 @@
 
 #include "binary_operator.h"
 
+/**
+* @class OpDifference Include/op_difference.h
+* @brief Operator to remove right SDF from the left one
+*/
 class OpDifference : public BinaryOperator
 {
 public:

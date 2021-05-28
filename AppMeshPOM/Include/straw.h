@@ -3,6 +3,10 @@
 
 #include "node.h"
 
+/**
+* @class Straw Include/straw.h
+* @brief Primitive for a straw SDF
+*/
 class Straw : public Node
 {
 protected:

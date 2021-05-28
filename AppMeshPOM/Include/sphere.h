@@ -3,10 +3,14 @@
 
 #include "node.h"
 
+/**
+* @class Sphere Include/sphere.h
+* @brief Primitive for a sphere SDF
+*/
 class Sphere : public Node
 {
 protected:
-	double radius;
+	double radius;	///< Radius of the sphere
 
 public:
 	Sphere() : Sphere(1.0) {}

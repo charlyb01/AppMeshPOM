@@ -3,6 +3,10 @@
 
 #include "binary_operator.h"
 
+/**
+* @class OpUnion Include/op_union.h
+* @brief Operator to make the union of left and right SDF
+*/
 class OpUnion : public BinaryOperator
 {
 public:

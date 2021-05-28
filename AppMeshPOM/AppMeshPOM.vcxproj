@@ -181,6 +181,7 @@
     <ClInclude Include="Include\capsule.h" />
     <ClInclude Include="Include\cone.h" />
     <ClInclude Include="Include\cube.h" />
+    <ClInclude Include="Include\cylinder.h" />
     <ClInclude Include="Include\data_structs.h" />
     <ClInclude Include="Include\ellipsoid.h" />
     <ClInclude Include="Include\mat.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="Include\op_rotation.h" />
     <ClInclude Include="Include\op_translation.h" />
     <ClInclude Include="Include\pyramid.h" />
+    <ClInclude Include="Include\straw.h" />
     <ClInclude Include="Include\torus.h" />
     <ClInclude Include="Include\node.h" />
     <ClInclude Include="Include\binary_operator.h" />
@@ -211,8 +213,6 @@
     <ClInclude Include="Include\terrain.h" />
     <ClInclude Include="Include\triangulation.h" />
     <ClInclude Include="Include\ui-interface.h" />
-    <ClInclude Include="Source\cylinder.h" />
-    <ClInclude Include="Source\straw.h" />
     <ClInclude Include="Include\unary_operator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

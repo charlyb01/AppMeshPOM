@@ -3,6 +3,10 @@
 
 #include "bin_op_smooth.h"
 
+/**
+* @class OpSmoothUnion Include/op_smooth_union.h
+* @brief Operator to make the union of left and right SDF in a smooth way (with interpolation)
+*/
 class OpSmoothUnion : public BinOpSmooth
 {
 public:

@@ -3,6 +3,10 @@
 
 #include "bin_op_smooth.h"
 
+/**
+* @class OpSmoothDifference Include/op_smooth_difference.h
+* @brief Operator to remove right SDF from the left one in a smooth way (with interpolation)
+*/
 class OpSmoothDifference : public BinOpSmooth
 {
 public:

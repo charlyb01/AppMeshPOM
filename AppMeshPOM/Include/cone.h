@@ -3,6 +3,10 @@
 
 #include "node.h"
 
+/**
+* @class Cone Include/cone.h
+* @brief Primitive for a cone SDF
+*/
 class Cone : public Node
 {
 protected:
