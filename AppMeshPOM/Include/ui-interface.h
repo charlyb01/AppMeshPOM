@@ -299,6 +299,8 @@ public:
         selectForm->addItem(QString());
         selectForm->addItem(QString());
         selectForm->addItem(QString());
+        selectForm->addItem(QString());
+        selectForm->addItem(QString());
         selectForm->setObjectName(QString::fromUtf8("selectForm"));
         selectForm->setEnabled(true);
         selectForm->setGeometry(QRect(10, 150, 101, 21));
@@ -556,6 +558,8 @@ public:
         selectForm->setItemText(4, QApplication::translate("Assets", "Ellipsoid", nullptr));
         selectForm->setItemText(5, QApplication::translate("Assets", "Pyramid", nullptr));
         selectForm->setItemText(6, QApplication::translate("Assets", "Torus", nullptr));
+        selectForm->setItemText(7, QApplication::translate("Assets", "Cylinder", nullptr));
+        selectForm->setItemText(8, QApplication::translate("Assets", "Straw", nullptr));
 
         groupBox_8->setTitle(QApplication::translate("Assets", "Parametre", nullptr));
         lineParametre_3->setText(QString());

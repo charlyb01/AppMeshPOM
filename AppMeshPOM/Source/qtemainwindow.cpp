@@ -153,6 +153,18 @@ void MainWindow::Select() {
 		uiw.lineParametreC->setEnabled(false);
 		uiw.labelParametre->setText(QString("Vector2"));
 	}
+	else if (forme == 7) {  //Cylinder
+		uiw.lineParametreA->setEnabled(true);
+		uiw.lineParametreB->setEnabled(true);
+		uiw.lineParametreC->setEnabled(true);
+		uiw.labelParametre->setText(QString("Vector"));
+	}
+	else if (forme == 8) {  //Straw
+		uiw.lineParametreA->setEnabled(true);
+		uiw.lineParametreB->setEnabled(true);
+		uiw.lineParametreC->setEnabled(true);
+		uiw.labelParametre->setText(QString("Vector"));
+	}
 
 }
 
@@ -185,11 +197,15 @@ Node* MainWindow::makePrimitive()
 			uiw.lineParametre_3->text().toDouble());
 		break;
 	case 3:
-		/*return new Cone(
-			Vector2(
+		return new Cone(
+			Vector(
 				uiw.lineParametreA->text().toDouble(),
-				uiw.lineParametreB->text().toDouble()), 
-			uiw.lineParametreA_2->text().toDouble());*/
+				uiw.lineParametreB->text().toDouble(),
+				uiw.lineParametreC->text().toDouble()),
+			Vector(
+				uiw.lineParametreA_2->text().toDouble(),
+				uiw.lineParametreB_2->text().toDouble(),
+				uiw.lineParametreC_2->text().toDouble()));
 		break;
 	case 4:
 		return new Ellipsoid(
@@ -207,6 +223,20 @@ Node* MainWindow::makePrimitive()
 			Vector2(
 				uiw.lineParametreA->text().toDouble(),
 				uiw.lineParametreB->text().toDouble()));
+		break;
+	case 7:
+		return new Cylinder(
+			Vector(
+				uiw.lineParametreA->text().toDouble(),
+				uiw.lineParametreB->text().toDouble(),
+				uiw.lineParametreC->text().toDouble()));
+		break;
+	case 8:
+		return new Straw(
+			Vector(
+				uiw.lineParametreA->text().toDouble(),
+				uiw.lineParametreB->text().toDouble(),
+				uiw.lineParametreC->text().toDouble()));
 		break;
 	default:
 		return nullptr;
