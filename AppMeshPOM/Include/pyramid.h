@@ -2,7 +2,7 @@
 #define __PYRAMID__
 
 #include "node.h"
-
+// Non functional
 class Pyramid : public Node
 {
 protected:

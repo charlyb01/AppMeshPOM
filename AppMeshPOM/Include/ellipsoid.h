@@ -2,7 +2,7 @@
 #define __ELLIPSOID__
 
 #include "node.h"
-
+// Non functional
 class Ellipsoid : public Node
 {
 protected:

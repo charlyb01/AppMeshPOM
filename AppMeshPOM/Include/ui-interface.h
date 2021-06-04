@@ -50,7 +50,6 @@ public:
     QPushButton *boxBoite;
     QPushButton *boxCapsule;
     QPushButton *boxCone;
-    QPushButton *boxPyramid;
     QPushButton *boxTorus;
     QPushButton *boxCylinder;
     QPushButton *boxStraw;
@@ -175,10 +174,6 @@ public:
         boxCone->setObjectName(QString::fromUtf8("boxCone"));
         boxCone->setGeometry(QRect(10, 50, 81, 23));
         boxCone->setCheckable(false);
-        boxPyramid = new QPushButton(groupBoxPrimitives);
-        boxPyramid->setObjectName(QString::fromUtf8("boxPyramid"));
-        boxPyramid->setGeometry(QRect(190, 50, 81, 23));
-        boxPyramid->setCheckable(false);
         boxTorus = new QPushButton(groupBoxPrimitives);
         boxTorus->setObjectName(QString::fromUtf8("boxTorus"));
         boxTorus->setGeometry(QRect(10, 80, 81, 23));
@@ -193,7 +188,7 @@ public:
         boxStraw->setCheckable(false);
         boxColumn = new QPushButton(groupBoxPrimitives);
         boxColumn->setObjectName(QString::fromUtf8("boxColumn"));
-        boxColumn->setGeometry(QRect(190, 80, 81, 23));
+        boxColumn->setGeometry(QRect(190, 50, 81, 23));
         boxColumn->setCheckable(false);
 
         hboxLayout->addWidget(Objects_groupBox);
@@ -292,8 +287,6 @@ public:
         lineRotationX->setGeometry(QRect(140, 20, 81, 20));
         lineRotationX->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         selectForm = new QComboBox(groupBox_5);
-        selectForm->addItem(QString());
-        selectForm->addItem(QString());
         selectForm->addItem(QString());
         selectForm->addItem(QString());
         selectForm->addItem(QString());
@@ -478,15 +471,6 @@ public:
 #endif // QT_NO_TOOLTIP
         boxCone->setText(QApplication::translate("Assets", "Cone", nullptr));
 #ifndef QT_NO_TOOLTIP
-        boxPyramid->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#5500ff;\">Callback #01</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic; color:#aa00ff;\">Create Eurographics 1996 Bear</span></p></body></html>", nullptr));
-#endif // QT_NO_TOOLTIP
-        boxPyramid->setText(QApplication::translate("Assets", "Pyramid", nullptr));
-#ifndef QT_NO_TOOLTIP
         boxTorus->setToolTip(QApplication::translate("Assets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -555,11 +539,9 @@ public:
         selectForm->setItemText(1, QApplication::translate("Assets", "Box", nullptr));
         selectForm->setItemText(2, QApplication::translate("Assets", "Capsule", nullptr));
         selectForm->setItemText(3, QApplication::translate("Assets", "Cone", nullptr));
-        selectForm->setItemText(4, QApplication::translate("Assets", "Ellipsoid", nullptr));
-        selectForm->setItemText(5, QApplication::translate("Assets", "Pyramid", nullptr));
-        selectForm->setItemText(6, QApplication::translate("Assets", "Torus", nullptr));
-        selectForm->setItemText(7, QApplication::translate("Assets", "Cylinder", nullptr));
-        selectForm->setItemText(8, QApplication::translate("Assets", "Straw", nullptr));
+        selectForm->setItemText(4, QApplication::translate("Assets", "Torus", nullptr));
+        selectForm->setItemText(5, QApplication::translate("Assets", "Cylinder", nullptr));
+        selectForm->setItemText(6, QApplication::translate("Assets", "Straw", nullptr));
 
         groupBox_8->setTitle(QApplication::translate("Assets", "Parametre", nullptr));
         lineParametre_3->setText(QString());

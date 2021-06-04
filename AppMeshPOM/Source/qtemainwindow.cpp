@@ -66,7 +66,6 @@ void MainWindow::CreateActions()
 	connect(uiw.boxBoite, SIGNAL(clicked()), this, SLOT(AddBoite()));
 	connect(uiw.boxCapsule, SIGNAL(clicked()), this, SLOT(AddCapsule()));
 	connect(uiw.boxCone, SIGNAL(clicked()), this, SLOT(AddCone()));
-	connect(uiw.boxPyramid, SIGNAL(clicked()), this, SLOT(AddPyramid()));
 	connect(uiw.boxTorus, SIGNAL(clicked()), this, SLOT(AddTorus()));
 	connect(uiw.boxCylinder, SIGNAL(clicked()), this, SLOT(AddCylinder()));
 	connect(uiw.boxStraw, SIGNAL(clicked()), this, SLOT(AddStraw()));
@@ -135,31 +134,19 @@ void MainWindow::Select() {
 		uiw.lineParametreC_2->setEnabled(false);
 		uiw.labelParametre_2->setText(QString("height(double)"));
 	}
-	else if (forme == 4) {  //Ellipsoid
-		uiw.lineParametreA->setEnabled(true);
-		uiw.lineParametreB->setEnabled(true);
-		uiw.lineParametreC->setEnabled(true);
-		uiw.labelParametre->setText(QString("Vector"));
-	}
-	else if (forme == 5) {  //Pyramid
-		uiw.lineParametreA->setEnabled(true);
-		uiw.lineParametreB->setEnabled(false);
-		uiw.lineParametreC->setEnabled(false);
-		uiw.labelParametre->setText(QString("height(double)"));
-	}
-	else if (forme == 6) {  //Torus
+	else if (forme == 4) {  //Torus
 		uiw.lineParametreA->setEnabled(true);
 		uiw.lineParametreB->setEnabled(true);
 		uiw.lineParametreC->setEnabled(false);
 		uiw.labelParametre->setText(QString("Vector2"));
 	}
-	else if (forme == 7) {  //Cylinder
+	else if (forme == 5) {  //Cylinder
 		uiw.lineParametreA->setEnabled(true);
 		uiw.lineParametreB->setEnabled(true);
-		uiw.lineParametreC->setEnabled(true);
-		uiw.labelParametre->setText(QString("Vector"));
+		uiw.lineParametreC->setEnabled(false);
+		uiw.labelParametre->setText(QString("Vector2"));
 	}
-	else if (forme == 8) {  //Straw
+	else if (forme == 6) {  //Straw
 		uiw.lineParametreA->setEnabled(true);
 		uiw.lineParametreB->setEnabled(true);
 		uiw.lineParametreC->setEnabled(true);
@@ -208,30 +195,18 @@ Node* MainWindow::makePrimitive()
 				uiw.lineParametreC_2->text().toDouble()));
 		break;
 	case 4:
-		return new Ellipsoid(
-			Vector(
-				uiw.lineParametreA->text().toDouble(),
-				uiw.lineParametreB->text().toDouble(),
-				uiw.lineParametreC->text().toDouble()));
-		break;
-	case 5:
-		return new Pyramid(
-			uiw.lineParametreA->text().toDouble());
-		break;
-	case 6:
 		return new Torus(
 			Vector2(
 				uiw.lineParametreA->text().toDouble(),
 				uiw.lineParametreB->text().toDouble()));
 		break;
-	case 7:
+	case 5:
 		return new Cylinder(
-			Vector(
+			Vector2(
 				uiw.lineParametreA->text().toDouble(),
-				uiw.lineParametreB->text().toDouble(),
-				uiw.lineParametreC->text().toDouble()));
+				uiw.lineParametreB->text().toDouble()));
 		break;
-	case 8:
+	case 6:
 		return new Straw(
 			Vector(
 				uiw.lineParametreA->text().toDouble(),
