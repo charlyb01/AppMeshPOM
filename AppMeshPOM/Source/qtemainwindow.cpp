@@ -323,71 +323,76 @@ void MainWindow::ResetCamera()
 void MainWindow::AddSphere() {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return Sphere(30).Signed(pos); },
-		domain, 10));
+		domain, 5));
 	UpdateGeometry();
 }
 
 void MainWindow::AddBoite() {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return Boite(Vector(50,50,50)).Signed(pos); },
-		domain, 10));
+		domain, 5));
 	UpdateGeometry();
 }
 
 void MainWindow::AddCapsule() {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return Capsule(Vector(30, 30, 20), Vector(10, 20, 20), 20.0).Signed(pos); },
-		domain, 10));
+		domain, 5));
 	UpdateGeometry();
 }
 
 void MainWindow::AddCone() {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return Cone(Vector(60, 90,30), Vector(20,20,10)).Signed(pos); },
-		domain, 10));
+		domain, 5));
 	UpdateGeometry();
 }
 
 void MainWindow::AddEllipsoid() {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return Ellipsoid(Vector(30, 10, 10)).Signed(pos); },
-		domain, 10));
+		domain, 5));
 	UpdateGeometry();
 }
 
 void MainWindow::AddPyramid() {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return Pyramid(10.0).Signed(pos); },
-		domain, 10));
+		domain, 5));
 	UpdateGeometry();
 }
 
 void MainWindow::AddTorus() {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return Torus(Vector2(20, 10)).Signed(pos); },
-		domain, 10));
+		domain, 5));
 	UpdateGeometry();
 }
 
 void MainWindow::AddCylinder() {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return Cylinder(Vector2(40, 70)).Signed(pos); },
-		domain, 10));
+		domain, 5));
 	UpdateGeometry();
 }
 
 void MainWindow::AddStraw() {
 	meshColor = MeshColor(MeshReconstruction::MarchCube(
 		[=](Vector const& pos) { return Straw(Vector(15, 30, 30)).Signed(pos); },
-			domain, 10));
+			domain, 5));
 	UpdateGeometry();
 }
 
 void MainWindow::AddColumn() {
-	Node* primitive = new OpRotation(new Cylinder(Vector2(15, 70)), Vector(90, 0, 0));
-	primitive = new OpTranslation(primitive, Vector(0, 0, 30));
-	Node* primitive2 = new OpTranslation(new Boite(Vector(50, 50, 20)), Vector(0, 0, 105));
-	Node* primitive3 = new OpTranslation(new Boite(Vector(50, 50, 20)), Vector(0, 0, -35));
-	terrain = new OpUnion(new OpUnion(primitive, primitive2), primitive3);
-	Generate();
+	meshColor = MeshColor(MeshReconstruction::MarchCube(
+		[=](Vector const& pos) { 
+			return OpUnion(
+				new OpUnion(
+					new OpTranslation(
+						new OpRotation(new Cylinder(Vector2(15, 70)), Vector(90, 0, 0)), 
+						Vector(0, 0, 30)),
+					new OpTranslation(new Boite(Vector(50, 50, 20)), Vector(0, 0, 105))),
+				new OpTranslation(new Boite(Vector(50, 50, 20)), Vector(0, 0, -35))).Signed(pos); },
+		domain, 5));
+	UpdateGeometry();
 }
